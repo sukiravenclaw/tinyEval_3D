@@ -1,0 +1,77 @@
+{
+  "model": "triposr",
+  "prompt_id": 71,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "triposr",
+      "prompt_id": 71,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "I am confirming my original score. While the bell has a semblance of a solid shape, the overall object is a geometric mess. The tentacles are not modeled as coherent surfaces but as a cloud of disconnected fragments, noise, and blobs. This level of fragmentation makes the asset unusable for most applications that require a sense of physical plausibility, such as e-commerce or detailed educational visualizations. The median score of 5 seems too high for an asset with such fundamental geometric errors.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 71,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 3,
+      "reasoning": "I am maintaining my score. The main bell is mostly consistent, but the tentacles\u2014a major part of the jellyfish\u2014are completely unstable between views. They appear to break apart, reform, and change configuration randomly. This lack of structural integrity would make the object feel broken and glitchy in any interactive 3D/AR/VR context, which is a critical failure from a UX perspective. A median score of 5 understates how severe this view-dependent inconsistency is.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 71,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "My initial score was far too high. I focused on the object being recognizable as 'a jellyfish' in all views, but ignored how the structural failure impacts the semantics. On reflection, and in light of the group median, an object that appears to break and reform as it rotates is not semantically consistent. It fails to communicate the core idea of being a single, stable entity. A user would be confused about whether they are seeing one object or multiple broken versions. The semantic content is 'a broken, glitching jellyfish,' and that is not what is expected. The low group median is correct; the asset is semantically incoherent.",
+      "revised": true,
+      "round1_score": 8,
+      "real_median": 8,
+      "fake_median": 1
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 71,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 4,
+      "reasoning": "My score was very close to the median, and I stand by my reasoning. The asset has a beautiful and evocative color palette, successfully creating a bioluminescent, ethereal mood. However, the visual appeal of the colors and lighting is severely compromised by the messy, fragmented, and incomplete-looking geometry. The result is a mix of appealing and unappealing qualities.",
+      "revised": false,
+      "round1_score": 4,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 71,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am confirming my low score, despite the much higher group median. The prompt's most unique and specific instruction was 'tentacles shaped like lightning bolts.' The asset completely fails to deliver on this. The tentacles are amorphous, wispy, and blob-like, with no resemblance to the sharp, angular, branching form of lightning. The asset is a 'jellyfish' and it is 'bioluminescent,' but it fails on the key creative descriptor. For a user who has read the prompt, this would be a major disappointment. The median score of 6 feels exceptionally generous and ignores this specific failure.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 3,
+      "fake_median": 6
+    }
+  ]
+}

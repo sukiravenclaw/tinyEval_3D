@@ -1,0 +1,77 @@
+{
+  "model": "hunyuan",
+  "prompt_id": 61,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "hunyuan",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "After reviewing the group's median score of 5, I re-examined the asset. My initial reasoning holds. While the front view is borderline acceptable, the geometry in all other views is melted, lumpy, and lacks definition. For use in AR/VR or a product viewer where a user has free camera control, this level of geometric breakdown is completely unacceptable. It would destroy immersion and make the product look broken or poorly made. My score of 1 reflects this critical failure for my specific use case.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "I am confirming my score of 1. The asset is a textbook example of structural inconsistency. The contents of the basket\u2014the volume, shape, and placement of the vegetable mass\u2014change dramatically and illogically between views. This is not a single, coherent 3D object. For any interactive use case, this is a fatal flaw. The high median score from the group is inexplicable from a 3D asset integrity perspective.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "My score of 2 remains. The asset fails to maintain its semantic content. Key, identifiable vegetables like the eggplant and carrot are clearly visible from the front but completely vanish from other angles, replaced by an indistinct mass of green. This would be highly confusing for a user and is a failure to represent a consistent object. For educational or e-commerce purposes, this is misleading.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "I am confirming my score of 1. The asset is not aesthetically pleasing. The muddy textures, dull colors, and melted forms make the vegetables look spoiled, waxy, and unappetizing rather than 'fresh'. Even the 'best' view is only mediocre. The overall impression from a 360-degree perspective is one of a chaotic, ugly mess. This is not an asset I would ever approve for a consumer-facing application.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "Upon reflection, I am revising my score down from 3 to 2. My initial reasoning was that it matched the nouns ('basket', 'vegetables'). However, the failure on the qualifier 'arranged' is more severe than I first credited. An 'arrangement' implies a stable, intentional composition. Because this composition completely falls apart and changes from other angles, the object as a whole does not fulfill the 'arranged' part of the prompt. It's a partially-arranged facade, not an arranged collection. It also completely fails on 'fresh'. Therefore, a lower score is more appropriate.",
+      "revised": true,
+      "round1_score": 3,
+      "real_median": 7,
+      "fake_median": 2
+    }
+  ]
+}

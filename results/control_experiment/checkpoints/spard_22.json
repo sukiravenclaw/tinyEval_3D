@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 22,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 22,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "Upon review, I am lowering my score. While my initial reasoning stands\u2014the painterly style obscures critical details like spokes, pedals, and the chain into undifferentiated blobs\u2014I feel my original score of 2 was too generous. For my use case in product visualization or education, this isn't just a stylistic choice, it's a critical failure of geometric definition. The object is so indistinct that it would mislead a user about the bike's actual construction. The very high group median suggests others are interpreting this as a successful artistic style, but for a functional asset, it's a near-total failure of geometric representation.",
+      "revised": true,
+      "round1_score": 2,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "spard",
+      "prompt_id": 22,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "I am confirming my score of 0. The group median of 5 is, from my professional perspective, baffling. The asset is fundamentally not a 3D object. It is a 2D image of a bicycle extruded by a few pixels. The front and top-down views reveal a catastrophic collapse of form that makes the asset completely unusable in any interactive 3D context, such as AR or a product viewer. This is not a 'flaw'; it is a complete failure to generate a three-dimensional structure. There is no room for interpretation here; the object is structurally broken.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "spard",
+      "prompt_id": 22,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 3,
+      "reasoning": "I am maintaining my score of 3. The asset is semantically 'a bicycle' from the side, but it fails to maintain that identity from other angles, where it becomes an unidentifiable thin line. A 3D asset must be coherent from all viewpoints. Because its identity collapses depending on the viewing angle, it has major semantic errors. A user in an AR/VR environment would be confused as to whether they are seeing a real object or a cardboard cutout, which is a significant failure in communicating what the object *is*.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 22,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "I am confirming my score of 2. The other judges appear to have interpreted the blurry, low-detail rendering as a deliberate and successful 'painterly' aesthetic, leading to a high median score. For my use cases, this is not an appealing style. In e-commerce or educational media, this aesthetic reads as low-resolution, unfinished, and untrustworthy. It obscures rather than reveals detail, making it look like a poor quality scan or a rendering glitch. It is not appealing as a functional representation of a product.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "spard",
+      "prompt_id": 22,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 3,
+      "reasoning": "I am maintaining my score of 3. The extremely high group median of 7 suggests the other judges are only evaluating the 'bicycle' part of the prompt. The prompt was 'A bicycle leaning against a wall'. This asset completely omits the context of 'leaning against a wall'. It is a bicycle floating in a void. A partial match with a significant omission is not a 'very good match' (a 7). It is a failure to follow instructions. Therefore, my score remains low.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 2,
+      "fake_median": 7
+    }
+  ]
+}

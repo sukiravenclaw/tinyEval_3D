@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 55,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 55,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "My score remains unchanged. The group median of 6 is surprisingly high. From a UX perspective, an asset must be coherent from all angles. The geometry here is not just low-resolution; it represents two different objects depending on the viewpoint. The front view is blobby and undefined, and the side view shows a complete collapse of form. This level of inconsistency is a critical flaw, making the asset entirely unusable in any interactive application. The geometry does not form a cohesive, believable object in 3D space.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 55,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "My score remains unchanged. The group median of 5 suggests a moderate flaw, but I see a catastrophic failure. A shelf of perfumes and a thin, totem-like stack are structurally unrelated. An object that fundamentally changes its core shape when rotated is the definition of structurally inconsistent. For any e-commerce, AR/VR, or educational use case, this would appear as a major bug or glitch, completely breaking user immersion and trust. The asset is not a single, coherent structure.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 55,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "My score remains unchanged. The group median of 3 is close to my original score of 2, indicating shared concerns. The asset communicates 'perfume display' from the front but 'abstract totem pole' or 'stack of blocks' from the side. This semantic shift is highly confusing and would mislead a user about the nature of the object. The asset fails to maintain its identity across views.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 55,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "My score remains unchanged. I am puzzled by the group median of 6. The asset is blurry, lacks any fine detail, and most importantly, is structurally broken, which is aesthetically jarring. The appearance of an object glitching and morphing as the viewpoint changes is profoundly unappealing and unprofessional. While the color palette is acceptable, the overall execution results in an asset that looks more like a corrupted file than a finished product.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 55,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 3,
+      "reasoning": "My score remains unchanged, and it aligns with the group median. The asset captures the high-level concept of an 'assortment' on a 'display'. However, the execution is so poor that it fails to convincingly render 'perfumes' or anything 'vintage'. The bottles are indistinct blobs, and the overall quality is too low to properly align with the prompt's details.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 6,
+      "fake_median": 3
+    }
+  ]
+}

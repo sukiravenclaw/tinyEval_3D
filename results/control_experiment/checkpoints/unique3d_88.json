@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 88,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "My previous reasoning stands. The asset is composed of extremely fragmented, wispy, and disconnected pieces. There are no coherent surfaces to speak of. Despite the high median score from the group, the visual evidence shows a complete lack of geometric integrity. It resembles a rendering artifact, not a solid object. I cannot change my score based on data that so starkly contradicts the asset itself.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "My previous reasoning stands. The object lacks any discernible global structure, appearing as a cloud of digital noise. The views are consistent only in their shared state of failure. The group median of 9 is incomprehensible when viewing this asset, which has no stable, identifiable three-dimensional form. I must adhere to my own evaluation of the visual data.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "My previous reasoning stands. The asset is not recognizable as any object in any view. It has zero semantic content. For a user, this would be a blank space or an error. The group median of 9 is impossible to reconcile with an object that cannot be identified. My professional judgment requires I maintain my score of 0.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "My previous reasoning stands. The asset is visually null, resembling a glitch or an error. It is colorless, formless, and completely unappealing. The idea that this could be rated a 9 on aesthetics is not supported by any reasonable design or user experience standard. It is not an asset that can be judged on aesthetic merits, as it barely exists visually.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "My previous reasoning stands. There is a complete and catastrophic failure to align with the prompt. The asset does not depict a quilt, plaid fabric, the colors red or green, layers, or a bed. The group median of 9 for this criterion is particularly inexplicable. The disconnect between the prompt and the resulting asset is absolute. My score of 0 is the only professionally responsible rating.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    }
+  ]
+}

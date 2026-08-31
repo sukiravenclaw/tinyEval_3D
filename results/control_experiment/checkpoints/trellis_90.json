@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 90,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 4,
+      "reasoning": "The overall surface rendering is acceptable, but the geometry has some notable flaws. The edges of the cut-out sections are jagged and look artificially polygonal rather than naturally corroded. The main body of the object also appears somewhat low-poly and lumpy, lacking the subtle surface irregularities one would expect from an old, hand-worked object.",
+      "revised": false,
+      "round1_score": 4,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 9,
+      "reasoning": "I am maintaining my high score despite being an outlier, based on a strict interpretation of this criterion. The asset is perfectly coherent *as a 3D model* across all four views provided. The features, including the hanging loop, the overall shape, and the placement of the holes and patina, rotate consistently. There are no signs of structural collapse, Janus issues, or view-dependent geometry. The issue is not that the structure is inconsistent, but that the structure is wrong for a bell, which I have penalized heavily under 'text_3d_alignment'.",
+      "revised": false,
+      "round1_score": 9,
+      "real_median": 8,
+      "fake_median": 1
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 9,
+      "reasoning": "As with structural consistency, I am maintaining my high score. The object's identity, though ambiguous and incorrect based on the prompt, is perfectly consistent across all viewpoints. It is always a weathered, bell-shaped metal object with large holes. Its semantics do not drift or change between views. It is consistently a 'bell-shaped lantern top,' not a bell in one view and a lantern in another. This internal consistency is high, even though the object's identity is a failure when compared to the prompt.",
+      "revised": false,
+      "round1_score": 9,
+      "real_median": 8,
+      "fake_median": 1
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 3,
+      "reasoning": "On re-evaluation, and taking the group median into account, I agree my initial score was too generous. While the texturing (patina and rust) is evocative, the crude and unrefined low-polygon geometry is more distracting than I first acknowledged. For a modern AR/VR or e-commerce application, this model would look dated and unconvincing, significantly lowering its aesthetic appeal for a non-expert user.",
+      "revised": true,
+      "round1_score": 5,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am standing by my very low score. This is a major failure of concept. The prompt asked for a 'solid... bell,' a resonant object. The asset produced has large, prominent holes in its crown, making it fundamentally incapable of being a bell. It more closely resembles a lantern top, a vent cover, or a piece of nautical equipment. While it successfully captures attributes like 'old,' 'green patina,' and 'asymmetrical,' misrepresenting the core object is a critical flaw that would mislead any user about what the object is and how it functions. For educational or e-commerce purposes, this is an immediate failure.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    }
+  ]
+}

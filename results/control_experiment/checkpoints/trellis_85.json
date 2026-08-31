@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 85,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 85,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "Upon review, my initial score was incorrect. I focused on the quality of the single presented image rather than its performance as a multi-view asset. Since all four views are identical, it is impossible to assess the geometric consistency of a 3D model. There is no information to confirm that this is a coherent 3D shape and not just a 2D sprite. This is a fundamental failure of the generation process for this criterion.",
+      "revised": true,
+      "round1_score": 8,
+      "real_median": 8,
+      "fake_median": 1
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 85,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "This is a complete failure of the multi-view generation process. All four images show the exact same viewpoint. It is impossible to determine if this is a coherent 3D model or simply a 2D image, as its structure from other angles is not visible. This fundamentally fails the test of demonstrating a consistent 3D form.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 85,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "My previous score was far too high. While the object is a street lamp in all four images, this is only because the images are identical. The purpose of this criterion is to check for semantic drift or hallucination across different views. Since no different views are provided, the test cannot be passed. It is a failure to demonstrate semantic consistency.",
+      "revised": true,
+      "round1_score": 9,
+      "real_median": 9,
+      "fake_median": 0
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 85,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "I have revised my score downward significantly. While the design of the lamp itself is adequate, the overall aesthetic quality of the *output* is very low. The presentation of four identical, low-resolution images on a white background looks like a rendering error or a bug. As a final product, this is not aesthetically appealing or professional.",
+      "revised": true,
+      "round1_score": 8,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 85,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "While I still believe this is a major failure of alignment, I am revising my score slightly upward to acknowledge that the generator did correctly identify the core subject of the prompt ('street lamps'). However, it completely failed to render the vast majority of the prompt's instructions: 'a sequence', 'casting pools of light', 'on cobblestone paths', 'as twilight descends'. It delivered a single, decontextualized object instead of the requested scene, which is a very poor match to the user's intent.",
+      "revised": true,
+      "round1_score": 1,
+      "real_median": 2,
+      "fake_median": 7
+    }
+  ]
+}

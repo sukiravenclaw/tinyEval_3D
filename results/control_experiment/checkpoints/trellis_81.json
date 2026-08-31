@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 81,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 81,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "After reviewing the group scores, I am re-confirming my initial assessment. While others may interpret the low-fidelity, blobby forms as a stylistic choice, from a product design and UX perspective, this level of geometric detail is insufficient. The trees are a single jagged mass, and the central object lacks any clear surface definition, appearing as a lumpy, undefined shape. For any application requiring a user to clearly identify an object, this geometry is a failure. A score of 2 is appropriate for an asset with such poor geometric definition.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 81,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 5,
+      "reasoning": "Upon reflection, my initial score was slightly too harsh because I was conflating structural issues with semantic ones. While the *meaning* of the object changes with the viewpoint, the actual geometry and the overall arrangement of the scene's elements (base, trees, foreground object) do remain stable. There is no obvious geometry collapse or parts disappearing. Therefore, I am revising my score upwards to align more closely with the group median, acknowledging that the asset is structurally sound, even if its content is confusing.",
+      "revised": true,
+      "round1_score": 4,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 81,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "I am holding firm on my score of 0 for this criterion, despite being a strong outlier. The disagreement among judges likely stems from a different weighting of this issue. For my purposes (e-commerce, education, AR/VR), semantic consistency is non-negotiable. An asset that is unambiguously a dome tent from the side view (bottom-left) and a small, hooded figure huddled over a light from the front (top-right) is functionally useless. It cannot communicate a single, coherent idea. This is not a minor ambiguity; it's a complete failure of semantic representation that would utterly confuse a user.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 81,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 3,
+      "reasoning": "I am confirming my original score. While I acknowledge the moody, atmospheric lighting has some appeal, which likely explains the higher median score, the overall aesthetic is severely undermined by the extremely poor geometry and semantic confusion. The scene looks messy, unfinished, and ultimately unconvincing because the central object is a confusing blob. A successful aesthetic requires a harmony of form and presentation, and the form here is deeply flawed.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 81,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 1,
+      "reasoning": "I am re-confirming my score of 1. The prompt specifically requested a 'cluster of tents' and 'campfire smoke'. The asset provides, at best, a single ambiguous object that isn't clearly a tent, and it completely omits the smoke. While it does contain a forest-like element and a campfire-like light source, it fails on the two most specific and important nouns in the prompt. A model that misses the primary subject ('cluster of tents') this badly is a critical failure in text-to-3D alignment.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

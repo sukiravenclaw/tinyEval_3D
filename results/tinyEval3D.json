@@ -1,0 +1,190 @@
+{
+  "prompts": [
+    7,
+    8,
+    10,
+    11,
+    12,
+    15,
+    17,
+    23,
+    24,
+    32,
+    37,
+    40,
+    43,
+    49,
+    50,
+    54,
+    57,
+    59,
+    60,
+    65,
+    69,
+    70,
+    76,
+    78,
+    83,
+    85,
+    87,
+    90,
+    94,
+    98
+  ],
+  "parameters": [
+    {
+      "item": 7,
+      "a": 0.58,
+      "b": 0.6
+    },
+    {
+      "item": 8,
+      "a": 0.933,
+      "b": 0.4
+    },
+    {
+      "item": 10,
+      "a": 0.432,
+      "b": 0.8
+    },
+    {
+      "item": 11,
+      "a": 0.625,
+      "b": 0.8
+    },
+    {
+      "item": 12,
+      "a": 0.864,
+      "b": 0.6
+    },
+    {
+      "item": 15,
+      "a": 0.933,
+      "b": 0.4
+    },
+    {
+      "item": 17,
+      "a": 0.649,
+      "b": 0.2
+    },
+    {
+      "item": 23,
+      "a": 0.085,
+      "b": 0.8
+    },
+    {
+      "item": 24,
+      "a": 0.432,
+      "b": 0.8
+    },
+    {
+      "item": 32,
+      "a": 0.933,
+      "b": 0.4
+    },
+    {
+      "item": 37,
+      "a": 0.625,
+      "b": 0.8
+    },
+    {
+      "item": 40,
+      "a": 0.432,
+      "b": 0.8
+    },
+    {
+      "item": 43,
+      "a": 0.933,
+      "b": 0.4
+    },
+    {
+      "item": 49,
+      "a": 0.864,
+      "b": 0.6
+    },
+    {
+      "item": 50,
+      "a": 0.085,
+      "b": 0.8
+    },
+    {
+      "item": 54,
+      "a": 0.864,
+      "b": 0.6
+    },
+    {
+      "item": 57,
+      "a": 0.625,
+      "b": 0.8
+    },
+    {
+      "item": 59,
+      "a": 0.01,
+      "b": 0.8
+    },
+    {
+      "item": 60,
+      "a": 0.625,
+      "b": 0.8
+    },
+    {
+      "item": 65,
+      "a": 0.864,
+      "b": 0.6
+    },
+    {
+      "item": 69,
+      "a": 0.864,
+      "b": 0.6
+    },
+    {
+      "item": 70,
+      "a": 0.864,
+      "b": 0.6
+    },
+    {
+      "item": 76,
+      "a": 0.625,
+      "b": 0.8
+    },
+    {
+      "item": 78,
+      "a": 0.625,
+      "b": 0.8
+    },
+    {
+      "item": 83,
+      "a": 0.933,
+      "b": 0.4
+    },
+    {
+      "item": 85,
+      "a": 0.864,
+      "b": 0.6
+    },
+    {
+      "item": 87,
+      "a": 0.01,
+      "b": 0.8
+    },
+    {
+      "item": 90,
+      "a": 0.933,
+      "b": 0.4
+    },
+    {
+      "item": 94,
+      "a": 0.649,
+      "b": 0.2
+    },
+    {
+      "item": 98,
+      "a": 0.422,
+      "b": 0.6
+    }
+  ],
+  "n_items": 30,
+  "spearman_rho": 1,
+  "loocv_rho": 0.935,
+  "recalibration": "To recalibrate tinyEval3D on a new set of 3D generation models: 1. Run the 30 prompts through the Delphi judging pipeline. 2. Compute proportion correct (threshold = 5/9) per prompt per model. 3. Rank models by sum score; verify Spearman rho >= 0.90 vs full benchmark. 4. If rho < 0.90, re-stratify using updated IRT theta estimates from flipped 2PL."
+}

@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 19,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 19,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 3,
+      "reasoning": "Upon review, I am lowering my score. My initial reasoning about inconsistent lighting and surface detail holds, but I believe I understated the severity. While the core geometry of the basket and apples is mostly stable (barring the handle), the surface properties are not. The way light, shadow, and texture are rendered changes so drastically between views that it breaks the illusion of a single, solid object rotating in space. The top-right and bottom-left views are particularly dark and blurry, losing all the crisp detail of the top-left view. This is more than a 'minor' inconsistency; it severely undermines the asset's use in any interactive context where a user would expect realistic material properties.",
+      "revised": true,
+      "round1_score": 4,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 19,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "I am confirming my original score and reasoning. The asset is structurally incoherent due to the handle changing its fundamental shape between views\u2014from a single central post to a full arch. This is a catastrophic 'Janus' failure that makes the object non-physical and impossible to use in any 3D viewer, AR/VR application, or other interactive media. A user rotating this object would see it impossibly morph, which is completely unacceptable. Despite the high median score from the group, I cannot overlook this fundamental flaw, which makes the asset unusable for my purposes.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 19,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "I am revising my score downwards. My initial reasoning was that it is recognizable as 'a basket of apples' but not the *same* basket. Reflecting on the severity of the structural failure, this semantic break is more significant than I first scored. For any e-commerce or educational use case, object persistence is key. Since the asset represents two physically different baskets depending on the viewing angle, it fails to represent a single, consistent semantic entity. The user is left confused about what the object actually is. The general category is correct, but the specific instance is broken.",
+      "revised": true,
+      "round1_score": 3,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 19,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 3,
+      "reasoning": "I am revising my score downwards. While the top-left view is aesthetically pleasing with a nice painterly quality, this appeal does not hold across all views. The experience of interacting with the object as a whole would be jarring, moving from a clear, well-lit image to a dark, muddy, and blurry one. The overall aesthetic experience is therefore inconsistent and unappealing. The poor quality of the darker views significantly detracts from the high quality of the best view, making the asset feel unfinished and unreliable.",
+      "revised": true,
+      "round1_score": 4,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 19,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am confirming my original score. The prompt explicitly requested 'Four' apples. The generated asset clearly shows a basket containing significantly more than four apples\u2014at least seven or eight are visible in each view. This is a direct and unambiguous failure to adhere to a quantitative constraint in the prompt. While the asset correctly depicts 'ripe apples in a basket', ignoring the specified number is a major deviation. For any use case where specifications matter (e.g., educational content, e-commerce listings for a specific product bundle), this asset would be incorrect. The high median score from the group suggests a different interpretation of prompt fidelity, but from a UX and product design perspective where details matter, this is a clear failure.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

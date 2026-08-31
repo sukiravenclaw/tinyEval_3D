@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 48,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "Despite the group median of 9, the asset presented to me consists solely of faint, disconnected lines and artifacts. There are no coherent surfaces, and thus no discernible geometry to evaluate for consistency. It appears to be a failed or corrupted render. Based on the visual information available to me, a score of 0 is the only justifiable one, as there is no consistent geometry present.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "The four views presented do not resolve into a single, coherent 3D object. Each view is a separate, abstract collection of lines that seems to change arbitrarily. There is no sense of a stable underlying structure. My initial assessment of a complete lack of structural integrity stands, as the object appears to have no consistent form between views.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "The asset is not recognizable as any object, let alone a clownfish in an anemone. Since the object has no identifiable semantic meaning in any single view, it is impossible for it to maintain semantic consistency across multiple views. The visual information is simply noise. The extreme discrepancy with the group median suggests I am seeing a different image, but based on what is shown, the asset fails entirely on this criterion.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "The visual is deeply unappealing. It looks like a rendering error, with faint, messy smudges against a blank background. It lacks any pleasing form, color, or composition. From a user experience perspective, this would be perceived as a broken image or a bug. It holds no aesthetic value.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "The asset shown has zero correspondence with the prompt 'Clownfish peeking out from sea anemone tendrils.' There is no identifiable fish, no anemone, and no tendrils. The failure to represent the prompt is total. While the group consensus was a 9, I can only assume they were shown a different asset, because this image does not align with the text prompt in any way, shape, or form.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    }
+  ]
+}

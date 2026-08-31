@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 5,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "The geometry is severely flawed. Surfaces that should be flat, like walls and roof planes, are warped, wavy, and distorted. Details like windows and the roofline are misshapen and lack definition, giving the entire model a 'melty' appearance.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "spard",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "This is a catastrophic failure of structural consistency. The model exhibits a severe Janus-type issue, presenting completely different facades from different angles. For example, the top-right view shows a bay window that is absent in the front-facing views, indicating it is not a coherent, single object.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "The asset fails to maintain semantic consistency. While it is always identifiable as 'a house,' it is not the *same* house from one view to the next. The appearance of different architectural features depending on the camera angle would completely confuse a user about the object's true nature.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "spard",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "The asset is not aesthetically pleasing. The textures are blurry and low-resolution, the colors are washed-out, and the severe geometric distortion is visually jarring. The overall impression is that of a corrupted or glitchy model, not a convincing representation.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "spard",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "Upon review, I am significantly revising this score downwards. I previously reasoned that it depicts 'a brick house' and scored it high. However, the group's lower median score is more appropriate. The prompt implicitly requests a single, coherent object. This asset is a 'Janus' object that presents multiple, conflicting versions of a house. This fundamental incoherence makes it deeply misleading and thus poorly aligned with the user's intent to generate a believable instance of 'a brick house.' The catastrophic failure in other areas means it fails to be a useful or believable object that fulfills the prompt.",
+      "revised": true,
+      "round1_score": 6,
+      "real_median": 7,
+      "fake_median": 2
+    }
+  ]
+}

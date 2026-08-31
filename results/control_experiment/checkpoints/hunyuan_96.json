@@ -1,0 +1,77 @@
+{
+  "model": "hunyuan",
+  "prompt_id": 96,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "hunyuan",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "Upon review, I am lowering my score. My initial reasoning focused on the soft, painterly look. However, the more critical geometric failure is the inconsistency of the model itself. The geometry of the lantern's top literally changes from a handle to a finial depending on the viewing angle. This is not a stylistic choice; it's a fundamental breakdown of geometric coherence. The object does not have a single, stable geometric form, making it appear less like a 3D model and more like a set of conflicting 2D illustrations.",
+      "revised": true,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "I am confirming my score of 0. The asset is structurally incoherent. It depicts two mutually exclusive designs for the lantern's top\u2014one for carrying (handle) and one for stationary mounting (finial). An object that changes its fundamental structure based on the viewing angle is broken. This is the most severe type of structural failure possible, as the asset does not represent a single, persistent object. The high median score from other judges does not change this objective fact.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "I am confirming my score of 0. Because the structure is incoherent, the asset's meaning is also incoherent. A user cannot determine what this object *is*. Is it a portable lantern or a fixed one? The asset communicates both, and therefore neither, creating complete semantic confusion. It fails the most basic test of recognizability for a persistent object, making it entirely unsuitable for any application where a user needs to understand what they are looking at.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 3,
+      "reasoning": "I am confirming my score. The asset has some aesthetic appeal in its color palette (the corroded copper and glowing teal) and its painterly, atmospheric style. If viewed as a 2D concept illustration, it's pleasant. However, as a 3D asset, its aesthetic value is severely undermined by the blurry rendering and, most importantly, the jarring structural inconsistencies that break the illusion of a solid, believable object.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am confirming my score. While the asset vaguely aligns with stylistic keywords like 'old lantern', 'patina', and 'translucent panes', it catastrophically fails the most fundamental, implicit requirement of the prompt: to generate *a* single, coherent lantern. The prompt describes one object. The model produced an incoherent fusion of two. Therefore, it is a very poor alignment with the prompt's intent. The high median score from other judges is inexplicable, as it seems to ignore the model's primary failure to be a valid 3D object.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

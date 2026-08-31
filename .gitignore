@@ -1,0 +1,18 @@
+.env
+.venv/
+.DS_Store
+__pycache__/
+*.pyc
+.Rproj.user/
+tokenwatch/
+data/zips/
+data/rendered_zips/
+eval3d/
+dashboard.html
+paper/
+tmp_images/
+logs/
+figures/
+test-1.ipynb
+test_llm_api (1).ipynb
+/text_prompts.json

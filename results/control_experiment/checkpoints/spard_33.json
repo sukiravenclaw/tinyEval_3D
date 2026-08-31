@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 33,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "After reviewing the group statistics, I maintain my very low score. While some judges may have focused on the frontal impression, my role as a UX researcher requires me to penalize severely any asset that would break a user's immersion or mislead them. The side views reveal a complete breakdown of the surface, which is jagged, paper-thin, and chaotic, not just flawed. It is not a coherent 3D surface. This is a critical failure for any interactive application.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "spard",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "I stand by my initial assessment. The group median of 3 seems overly generous for an object that completely lacks volume. A pillow's primary structural characteristic is its volume. This asset collapses into a nearly two-dimensional, distorted plane from the side. This is not a 'somewhat recognizable' object from the side; it's a glitch. For a user in e-commerce or AR, this is a catastrophic failure that misrepresents the product.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "spard",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "My score aligns with the group median, and I confirm my initial assessment. The asset is clearly identifiable as a decorative pillow from the front, but from the side, it becomes an unrecognizable, glitchy artifact. This semantic inconsistency would confuse any user trying to understand the object from multiple angles.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "spard",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "Despite a higher group median, I cannot rate the aesthetics higher. The jarring and ugly nature of the broken side views completely negates any appeal the frontal texture might have. An object that looks like a corrupted digital file from most angles is not aesthetically appealing or convincing. The technical failures are not minor; they are overwhelming and ruin the visual experience.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 3,
+      "reasoning": "My score aligns with the group median, and my initial reasoning holds. The asset attempts to render an 'embroidered silk pillow with tassels' but fundamentally fails on the 'pillow' aspect by not having any 3D volume. It's a weak, 2.5D representation that does not fulfill the prompt in a convincing three-dimensional way.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 6,
+      "fake_median": 3
+    }
+  ]
+}

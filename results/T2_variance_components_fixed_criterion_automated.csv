@@ -1,0 +1,8 @@
+"facet","variance","pct_total"
+"Criterion (fixed effect)",NA,81.96
+"Residual",0.216149619231455,10.08
+"model:criterion",0.0457649925747105,2.13
+"model:prompt_id",0.0423428274827741,1.98
+"prompt_id:criterion",0.031704627208268,1.48
+"model",0.0306196334910098,1.43
+"prompt_id",0.0201695434830781,0.94

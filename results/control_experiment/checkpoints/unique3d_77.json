@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 77,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 77,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "After reviewing the group's feedback, I have re-examined the asset. My initial assessment remains unchanged. The asset is composed of disconnected, low-detail fragments. The geometry does not form a coherent surface and appears more like separate 2D paint-like splatters than a solid 3D object. The form is ambiguous and lacks the definition required for any practical use.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 77,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "Despite the high median scores from the group, I cannot reconcile the four views into a single, structurally coherent object. They appear as four distinct, abstract shapes. There is no clear rotational correspondence between the views, leading me to conclude that the global structure has completely failed. A user would not perceive this as a single object from different angles.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 77,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "My initial rating of 0 stands. The object is entirely abstract and unrecognizable. For semantic consistency to be evaluated, there must first be discernible semantic content. As the asset does not clearly represent *any* object, let alone the one in the prompt, it fails this criterion completely. It communicates no information to the user.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 77,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "I am confirming my initial score. The asset consists of faint, greyish fragments on a white background. It lacks any engaging qualities such as color, texture, composition, or form. From a user experience perspective, it is confusing and visually empty, not appealing or interesting.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 77,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "Having reconsidered the asset in light of the prompt ('A hammock strung between two skyscrapers, swaying high above a neon cityscape'), my assessment remains that there is a complete failure of alignment. The asset contains none of the requested elements: no hammock, no skyscrapers, no cityscape, and no neon colors. The discrepancy between the prompt and the resulting asset is absolute.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    }
+  ]
+}

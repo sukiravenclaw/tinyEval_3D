@@ -1,0 +1,77 @@
+{
+  "model": "triposr",
+  "prompt_id": 17,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "triposr",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "The surface texture is a repetitive, low-resolution pattern that does not conform to the object's shape, creating a noisy and artificial appearance. Details like the bows and snout are blobby and lack definition, while the snout itself is an unnatural, deep cavity. The overall geometry is lumpy and lacks the crispness needed for a convincing depiction.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "The asset is severely inconsistent across views, exhibiting a 'Janus' problem with its face. The frontal view shows a face with bows and a snout, but this entire structure collapses into an unrecognisable lumpy form from the side and back angles. An object that is only coherent from a single, fixed viewpoint is fundamentally broken as a 3D asset meant for user inspection. The pose is also ambiguous and inconsistent.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "The object is only identifiable as a teddy bear from a specific frontal angle, and even then it is strange. From the side and back, it becomes an abstract textured shape, losing its semantic identity entirely. This drift in meaning would make the asset confusing for any user trying to inspect it, undermining its purpose as a product visualization.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "The asset is aesthetically unappealing due to its uncanny and unsettling features, particularly the dark, circular void for a snout which is very disturbing. The lumpy proportions, synthetic-looking texture, and bizarre placement of the bows create a creepy impression. It completely fails to convey the expected semantic content of a teddy bear\u2014charm and cuteness\u2014making it unsuitable for most commercial or educational applications.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "Upon review and seeing the group consensus, I believe my initial score was too generous. While the asset contains elements of a 'teddy bear' and 'red bow,' the execution represents a significant misinterpretation of the prompt. The 'teddy bear' is misshapen and barely recognisable, and the prompt 'a red bow' was interpreted as two bows placed bizarrely on the cheeks. These are not minor inaccuracies but core failures in aligning with the prompt's intent.",
+      "revised": true,
+      "round1_score": 4,
+      "real_median": 7,
+      "fake_median": 2
+    }
+  ]
+}

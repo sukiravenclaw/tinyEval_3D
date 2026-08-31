@@ -1,0 +1,77 @@
+{
+  "model": "hunyuan",
+  "prompt_id": 47,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "hunyuan",
+      "prompt_id": 47,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "The asset exhibits very low geometric complexity. The butterfly wings are rendered as flat, 2D planes with a texture applied, lacking any sense of volume or structure. The flower is a lumpy, indistinct shape with no discernible petals or fine detail, appearing more like a blob than a botanical form. I am confirming this score as the geometry is fundamentally simple and unconvincing.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 47,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "This asset is a textbook example of structural failure. The front view clearly shows the butterfly with its wings spread wide open. However, the side view shows the butterfly with its wings completely folded, a physically and geometrically separate state. A single, coherent 3D object cannot exist in two different poses simultaneously depending on the camera angle. This is a critical failure for any interactive application. Despite other judges being more lenient, this is a non-negotiable failure point from a UX perspective. The asset is not structurally consistent in any meaningful way.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 47,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "My previous reasoning holds, but I believe my score of 1 was too generous. The asset doesn't just have an inconsistency; it presents two contradictory states ('open wings' vs 'closed wings') as being simultaneously true. This would actively mislead and confuse a user about the nature and state of the object. A user cannot form a stable mental model of the object. The semantic meaning is not just inconsistent, it is completely broken. Therefore, a score of 0 is more appropriate.",
+      "revised": true,
+      "round1_score": 1,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 47,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "The asset is not visually appealing. The textures are blurry and low-resolution, the colors are muted, and the entire model lacks sharpness and detail. The flat wings and blob-like flower give it a cheap, dated look reminiscent of very old 3D graphics. While other judges rated this higher, for a user-facing application in e-commerce or education, this level of quality is subpar and unconvincing. I will confirm my score.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 47,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am revising my score downwards. While the asset does depict an orange butterfly that resembles a monarch, its failure as a coherent 3D object means it does not fulfill the implicit requirement of the prompt to generate a *usable 3D model*. Furthermore, the flower is not a yellow dandelion, but rather a white clover or dandelion seed head. The combination of failing to be a functional 3D object and getting the flower wrong outweighs the fact that the butterfly species is correct. It mostly fails to align with the prompt's intent.",
+      "revised": true,
+      "round1_score": 3,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

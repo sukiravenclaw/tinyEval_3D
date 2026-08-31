@@ -1,0 +1,20 @@
+E4 Objaverse Sensitivity Analysis — Interpretation Notes
+=========================================================
+
+Total models: 5 (1 non-Objaverse, 4 Objaverse)
+Minimum per-group threshold for valid inferential DIF: 10
+Inferential DIF run: NO (underpowered)
+
+Key results (descriptive group pass-rate contrast):
+  Mean |gap|  : 0.21
+  Max  |gap|  : 1
+  Items with |gap| > 0.20: 48 / 100
+
+WARNINGS:
+  - '0 flagged items' does NOT constitute evidence of no DIF.
+  - MH and logistic-regression DIF require >=10 models per group;
+    this dataset has only 1 non-Objaverse model(s).
+  - Results should be described as 'item-level Objaverse sensitivity',
+    not as formal measurement invariance evidence.
+  - Replicate with additional non-Objaverse models before drawing
+    conclusions about benchmark contamination.

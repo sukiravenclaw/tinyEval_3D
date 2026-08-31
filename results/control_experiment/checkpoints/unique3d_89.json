@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 89,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 89,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "My initial reasoning holds. Upon re-examination, the floating geometric fragments and the noisy, unresolved internal geometry are still clearly visible. While the overall silhouette of the jar is acceptable, these are not minor imperfections. For AR or a 3D product viewer, such artifacts would break the illusion and appear as glitches. The high median score suggests other evaluators may have overlooked these issues or focused only on the outer surface, but as a complete object intended for user interaction, it lacks the required geometric integrity. Therefore, I maintain my score.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 89,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "The asset's contents change drastically between views\u2014it is nearly full in the top-left view and almost empty in the bottom-left. This is a catastrophic failure of 3D structural coherence. An object cannot be a single, stable entity if its fundamental state changes based on the camera angle. This would be a breaking bug in any interactive application. The group's high median score is inexplicable on this point, as the flaw is objective and severe. I must stand by my original assessment that the asset is structurally broken.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 89,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "The structural inconsistency directly leads to a semantic one. Is this an empty jar, or a jar full of items? A user cannot know, as the object presents itself as both. This ambiguity makes it impossible to use for communicating what a product is. A user would be rightfully confused. My role requires me to penalize anything that would mislead a user, and this asset is fundamentally misleading. I am confirming my low score.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 89,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "While I acknowledge the high median score suggests others found this aesthetic appealing, I must evaluate it for its intended use cases. The faint, white-on-white, ghostly rendering style obscures detail and makes the object difficult to see. For e-commerce or educational media, clarity is paramount. This looks less like a deliberate, appealing style and more like a technical or incomplete render (e.g., an ambient occlusion pass). It is not appealing or convincing for a general audience in a product context. I am maintaining my score.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 89,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 1,
+      "reasoning": "Re-reading the prompt\u2014\"seashells, collected in a sand-filled, clear glass jar with a twine-tied neck, displayed on a windowsill\"\u2014and looking at the asset, the misalignment is extreme. The asset is only a 'clear glass jar'. The internal blobs are not identifiable as 'seashells', and 'sand', 'twine', and a 'windowsill' are entirely absent. I cannot understand how this could receive a high score for alignment. It fails to generate the most specific and important elements of the prompt. My initial score of 1 was accurate.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 1,
+      "fake_median": 8
+    }
+  ]
+}

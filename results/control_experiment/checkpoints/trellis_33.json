@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 33,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 3,
+      "reasoning": "The overall form is recognizable as a pillow, but the surface details are very low fidelity. The tassels are rendered as indistinct, 'melty' blobs rather than separate strands, and the seams of the pillow are lumpy and poorly defined. While there are no major floating fragments, the lack of crispness in the geometry makes the object feel unconvincing and digitally primitive.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "The asset fails this criterion severely. It exhibits a classic 'Janus' issue, where the front and back are completely different and seemingly unrelated. The front is a cream-colored, embroidered surface, while the back is a stark, plain black material. This suggests the model has stitched together two different concepts rather than creating a single, coherent object, which would be very disorienting in an interactive 3D view.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "The semantic content is highly inconsistent across views. From the front, it is an 'ornate decorative pillow'. From the back, it is a 'plain modern pillow' or even a 'black pouch'. For any e-commerce or educational use case, this inconsistency would mislead the user about the fundamental nature of the object.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 3,
+      "reasoning": "The aesthetic is a mixed bag that ultimately fails due to inconsistency. The embroidered pattern on the front has a certain charm and a pleasing color palette. However, this is undermined by the low-fidelity rendering of the tassels and the jarring, aesthetically dissonant plain black back, making the object as a whole unappealing.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 3,
+      "reasoning": "I am revising my score downwards. While the asset contains all the explicit elements from the prompt ('embroidered,' 'silk,' 'pillow,' 'tassels'), my initial assessment was too generous and literal. Good alignment requires assembling the parts into a coherent whole that matches the implicit user expectation of the object. The prompt 'An embroidered silk pillow' implies a single, cohesive item. The model's creation of a 'Janus-faced' object with a completely different and unprompted black back is a significant failure of interpretation. It misunderstood the holistic nature of the prompt, leading to a misleading and confusing result, thus the alignment is poor.",
+      "revised": true,
+      "round1_score": 6,
+      "real_median": 6,
+      "fake_median": 3
+    }
+  ]
+}

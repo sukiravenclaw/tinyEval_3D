@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 58,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 58,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "I am maintaining my score. Despite the high group median, the geometry is objectively a failure. It consists of fragmented, non-manifold surfaces that resemble torn digital paper. It does not describe a coherent 3D volume for a 'house' or even the 'plaque' it might be mistaken for. In any 3D application, this geometry would cause rendering artifacts and be perceived as a glitch. The other judges may have been swayed by the texture, but this criterion is about the geometry, which is fundamentally broken.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "spard",
+      "prompt_id": 58,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "I am maintaining my score. The asset exhibits a complete lack of structural consistency. It presents as a 2D scene from the front but collapses into a thin, nonsensical shape from the side. A user attempting to rotate this object in an e-commerce or AR view would be completely confused. The object does not have the structure of a house, or any other recognizable object, in three dimensions. The high group median is baffling and suggests a misunderstanding of what constitutes a structurally consistent 3D model.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "spard",
+      "prompt_id": 58,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "I am maintaining my score. The semantic content\u2014'a quaint little house'\u2014is entirely confined to the texture on the front-facing plane. From any other angle, the object's meaning is lost, and it becomes an abstract piece of broken geometry. A core requirement for a usable 3D asset is that it remains semantically identifiable upon rotation and inspection. This asset fails that test completely. It is only a 'house' from one specific, unchangeable vantage point.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "spard",
+      "prompt_id": 58,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "I am maintaining my score. While the 2D image texture is painterly and aesthetically pleasing on its own, it is applied to a 3D form that is ugly and looks broken. The jagged edges, the bizarre untextured reverse side, and the paper-thin profile create an overall aesthetic experience of a digital error, not a beautiful object. The dissonance between the pleasant image and the broken form is jarring and results in a very low overall aesthetic quality for the asset as a 3D object.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "spard",
+      "prompt_id": 58,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 1,
+      "reasoning": "I am maintaining my score. The prompt asked for a 3D asset of 'a quaint, little house'. This asset is not a 3D house. It is a 2D picture of a house projected onto a crude, nearly-flat piece of geometry. This is a fundamental failure to align with the '3D' nature of the request. For any user expecting to see a house with volume, depth, and a navigable path, this asset is completely misleading. The high median score suggests other judges ignored the '3D' requirement and only judged the alignment of the 2D image with the text.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 1,
+      "fake_median": 8
+    }
+  ]
+}

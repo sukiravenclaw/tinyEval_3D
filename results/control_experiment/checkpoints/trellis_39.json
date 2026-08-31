@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 39,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 39,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "My initial reasoning stands. The side views show the object's geometry breaking down into two thin, jagged planes, which is not a coherent representation of a book's pages and cover. While other judges rated this highly, suggesting a focus on the front view's impression, for any interactive application where the user can rotate the object, this geometric failure would be immediately apparent and unacceptable. The object is not geometrically consistent across views.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 39,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "I am confirming my initial score. The asset is not structurally consistent. The front and back views imply a solid volume, but the side views show a complete collapse of this volume into two disconnected covers. This is a critical failure for a 3D asset intended to represent a solid object. The high median score from the group is surprising and suggests a different evaluation philosophy, but it doesn't change the observable structural incoherence.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 39,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 3,
+      "reasoning": "Upon reflection, I am lowering my score. While the object is always a 'book', the semantic content of 'ornate, velvet diary' is only present in the front view. The back view is a plain, dark, unadorned book, and the side views are broken. This significant shift in character and quality from one view to the next constitutes a meaningful semantic inconsistency. My previous score of 4 was too generous.",
+      "revised": true,
+      "round1_score": 4,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 39,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "I am revising this score to correct a clear discrepancy between my previous score (5) and my reasoning. My reasoning correctly stated that while the front view is appealing, the other views are 'unappealing due to the extreme darkness... and the severe geometric collapse'. An object that looks broken from multiple angles cannot be considered aesthetically excellent. A score of 2 ('Poor') more accurately reflects an asset that has one beautiful angle but is holistically flawed and unconvincing.",
+      "revised": true,
+      "round1_score": 5,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 39,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 1,
+      "reasoning": "I am confirming my score of 1. The asset's failure to match the prompt is objective and severe. The prompt explicitly requested a lock with a 'fingerprint', and the model generated a classic keyhole lock. This is a direct contradiction of a key feature. The group median of 5 is inexplicable unless other evaluators completely overlooked this part of the prompt. For any user expecting a modern, biometric-secured diary, this asset would be entirely misleading.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

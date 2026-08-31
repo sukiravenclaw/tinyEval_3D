@@ -1,0 +1,179 @@
+---
+title: "AI Measurement Paper — Full Psychometric Pipeline"
+output: html_notebook
+---
+
+This notebook runs the complete E1–E5 psychometric pipeline (plus the E1b
+model-ability extension) end to end, by sourcing the actual production
+scripts under `code/` rather than duplicating their logic here. There is a
+single source of truth: `code/*.R`. If those scripts change, re-running this
+notebook picks up the change automatically.
+
+Default data stream is the real Delphi stream (`results/r_data`), matching
+`code/run_psychometrics.R`. A final optional section reruns E3–E5 against the
+automated-score stream (`results/r_data_dev`) for comparison.
+
+## Setup
+
+```{r setup}
+suppressPackageStartupMessages({
+  library(knitr)
+})
+
+# Robustly locate the repo root regardless of how/where this notebook is run
+# from (knit button, Run All, rmarkdown::render() from an arbitrary working
+# directory, etc.) -- do NOT rely on commandArgs()/--file= (there is none
+# when a script is source()'d) or on knitr's working-directory default
+# (inconsistent across invocation methods). Instead walk up from both the
+# document's own location and the current working directory looking for the
+# sibling `code/` and `results/` directories that mark the repo root.
+find_repo_root <- function() {
+  candidates <- character(0)
+  doc_path <- tryCatch(knitr::current_input(dir = TRUE), error = function(e) NULL)
+  if (!is.null(doc_path) && nzchar(doc_path)) candidates <- c(candidates, dirname(doc_path))
+  candidates <- c(candidates, getwd())
+
+  for (start in candidates) {
+    d <- normalizePath(start, mustWork = FALSE)
+    for (i in 1:6) {
+      if (dir.exists(file.path(d, "code")) && dir.exists(file.path(d, "results"))) return(d)
+      parent <- normalizePath(file.path(d, ".."), mustWork = FALSE)
+      if (identical(parent, d)) break
+      d <- parent
+    }
+  }
+  stop("Could not locate the AI_measurement_paper repo root ",
+       "(looked for sibling code/ and results/ directories).")
+}
+
+ROOT <- find_repo_root()
+RES    <- file.path(ROOT, "results")
+FIGS   <- file.path(RES, "figures")
+R_DATA <- file.path(RES, "r_data")
+cat("Repo root:", ROOT, "\n")
+
+# Each code/e*.R script computes its own ROOT via a --file=/commandArgs()
+# trick that only works when invoked as `Rscript code/foo.R`. Sourcing a
+# script from a notebook chunk never sets --file=, so those scripts fall
+# back to `normalizePath("..")` -- which resolves relative to the current
+# working directory at that moment. run_script() makes that fallback
+# resolve correctly (to ROOT) by temporarily setting the working directory
+# to code/ for the duration of the source() call, exactly matching what
+# `Rscript code/foo.R` run from the repo root would see. This avoids having
+# to modify the production scripts at all.
+run_script <- function(filename, env_vars = list()) {
+  old_wd  <- getwd()
+  old_env <- Sys.getenv(names(env_vars), unset = NA)
+  on.exit({
+    setwd(old_wd)
+    for (i in seq_along(env_vars)) {
+      nm <- names(env_vars)[i]
+      if (is.na(old_env[nm])) Sys.unsetenv(nm) else Sys.setenv(!!nm := old_env[nm])
+    }
+  }, add = TRUE)
+
+  if (length(env_vars) > 0) do.call(Sys.setenv, env_vars)
+  setwd(file.path(ROOT, "code"))
+  source(filename, echo = FALSE)
+}
+
+show_csv <- function(name) {
+  path <- file.path(RES, name)
+  if (!file.exists(path)) { cat("(not found:", name, ")\n"); return(invisible(NULL)) }
+  knitr::kable(read.csv(path, stringsAsFactors = FALSE))
+}
+```
+
+## E1 — Factor structure (automated + Delphi criteria)
+
+```{r e1}
+run_script("e1_factor_structure.R")
+```
+
+```{r e1-results}
+show_csv("T1_cfa_fit_indices.csv")
+show_csv("T1_mirt_bic.csv")
+show_csv("T1_factor_loadings.csv")
+```
+
+## E1b — IRT-weighted model ability (theta), reusing E1's MIRT fit
+
+```{r e1b}
+run_script("e1b_model_theta.R")
+```
+
+```{r e1b-results}
+show_csv("T1b_model_theta.csv")
+show_csv("T1b_theta_vs_naive.csv")
+```
+
+## E2 — Variance decomposition (MFRM)
+
+```{r e2}
+run_script("e2_variance_decomp.R")
+```
+
+```{r e2-results}
+show_csv("T2_variance_components_fixed_criterion.csv")
+show_csv("T2_variance_components.csv")
+show_csv("T2_variance_components_zscored.csv")
+show_csv("T2_reliability.csv")
+show_csv("T2_convergence_by_round.csv")
+```
+
+## E3 — Model stringency and prompt generatability (flipped 2PL IRT)
+
+```{r e3}
+run_script("e3_item_params.R")
+```
+
+```{r e3-results}
+show_csv("T3_model_parameters.csv")
+```
+
+## E4 — Objaverse training-data sensitivity
+
+```{r e4}
+run_script("e4_dif_analysis.R")
+```
+
+```{r e4-results}
+sens <- read.csv(file.path(RES, "T4_objaverse_sensitivity.csv"))
+cat("N items:", nrow(sens), "\n")
+cat("Mean |gap|:", round(mean(sens$abs_gap, na.rm = TRUE), 3), "\n")
+cat("% items with |gap| >= 0.40:", round(100 * mean(sens$abs_gap >= 0.40, na.rm = TRUE), 1), "\n")
+cat("Complete reversals (|gap| == 1.0):", sum(sens$abs_gap == 1.0, na.rm = TRUE), "\n")
+```
+
+## E5 — Adaptive 30-item subset (tinyEval3D)
+
+```{r e5}
+run_script("e5_adaptive_subset.R")
+```
+
+```{r e5-results}
+show_csv("T5_subset_comparison.csv")
+```
+
+## Optional: rerun E3–E5 against the automated-score stream for comparison
+
+Uses the `E{3,4,5}_R_DATA_DIR` / `E{3,4,5}_OUT_SUFFIX` overrides so the
+default Delphi-stream results above are untouched; outputs are written with
+an `_automated` suffix.
+
+```{r automated-stream, eval=dir.exists(file.path(RES, "r_data_dev"))}
+run_script("e3_item_params.R", list(E3_R_DATA_DIR = "r_data_dev", E3_OUT_SUFFIX = "_automated"))
+run_script("e4_dif_analysis.R", list(E4_R_DATA_DIR = "r_data_dev", E4_OUT_SUFFIX = "_automated"))
+run_script("e5_adaptive_subset.R", list(E5_R_DATA_DIR = "r_data_dev", E5_OUT_SUFFIX = "_automated"))
+```
+
+```{r automated-stream-results, eval=dir.exists(file.path(RES, "r_data_dev"))}
+show_csv("T3_model_parameters_automated.csv")
+show_csv("T5_subset_comparison_automated.csv")
+```
+
+## Session info
+
+```{r session-info}
+sessionInfo()
+```

@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 17,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 4,
+      "reasoning": "Within any single view, the surface quality is adequate. The geometry is simple and smooth, and the lighting creates a plausible sense of volume without major artifacts like floating fragments or jagged edges. However, the texture completely changes from a simple white weave on the back to a more detailed tan fur on the front, which is a major inconsistency even if the underlying geometry is sound.",
+      "revised": false,
+      "round1_score": 4,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "This is a catastrophic failure. The asset displays a classic 'Janus' problem where it appears as two different objects from the front and back. The front has a fully rendered face (eyes, nose) and a different color, while the back is completely featureless and white. A 3D object must be structurally coherent from all angles; this one is not.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "spard",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "The asset fails to maintain a consistent identity across views. A user would see a detailed, tan bear from the front and a simple, faceless white bear from the back, and would be completely misled about the object's nature. This hallucination of features on one side and their complete absence on the other is a severe failure of semantic consistency.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "spard",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "The front-facing view of the detailed bear is quite cute and aesthetically pleasing, with nice proportions and soft lighting. However, the back view is bland and slightly uncanny due to being featureless. The jarring inconsistency between the two views makes the overall impression incoherent and aesthetically unappealing.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 17,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 1,
+      "reasoning": "Upon review and consideration of the group feedback, I am drastically lowering this score. My initial assessment was too literal, focusing only on the presence of the keywords 'teddy bear' and 'red bow'. The other judges correctly identified that the prompt 'A teddy bear' implicitly asks for a single, coherent object. This model generated a 'Janus' object that is two different bears fused together, which is a fundamental failure to align with the prompt's true intent. It fails to be 'a' teddy bear, in the singular sense. The result is a broken concept, not a successful interpretation of the text.",
+      "revised": true,
+      "round1_score": 7,
+      "real_median": 7,
+      "fake_median": 2
+    }
+  ]
+}

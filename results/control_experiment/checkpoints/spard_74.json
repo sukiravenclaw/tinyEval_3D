@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 74,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 74,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "My previous score of 1 stands. Although the group median was much higher, from my perspective as a UX researcher, the asset's geometry is a critical failure. A smartphone is defined by its hard, planar surfaces and sharp edges. This asset appears melted and warped, fundamentally misrepresenting the object's physical properties. For any application in product visualization (e-commerce, AR), this would be misleading and unusable. The geometry isn't just imperfect; it's semantically incorrect for the object it's trying to depict.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "spard",
+      "prompt_id": 74,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 4,
+      "reasoning": "I am revising my score from 3 to 4. Upon review, while the geometry is deeply flawed, the *nature* of the flaw is consistent across all views. It consistently looks like a 'melted phone'. My initial reasoning focused on the changing silhouette, but I now concede that the overall distorted form is maintained from one angle to the next. The structure is therefore consistent in its poor quality, which warrants a slight increase from my previous score, moving it closer to the group median.",
+      "revised": true,
+      "round1_score": 3,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "spard",
+      "prompt_id": 74,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 4,
+      "reasoning": "My score of 4 was identical to the group median, so I will confirm it. The asset is consistently a smartphone, but the key semantic detail of a 'cracked screen' is not reliably present. The bottom views show cracks, but the top views show an overexposed, indistinct texture that could be a bright reflection or a screen that is simply on. This inconsistency weakens the asset's ability to communicate its intended state clearly.",
+      "revised": false,
+      "round1_score": 4,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 74,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "My score of 1 is confirmed. I am in profound disagreement with the group median of 7. From a product design and usability perspective, this asset is not aesthetically pleasing. The warped shape, muddy colors, and blown-out, unrealistic lighting create a messy, glitchy appearance. It does not look 'stylized' in an appealing way; it looks broken and poorly rendered. A non-expert user would likely find this unconvincing and visually unappealing, not a desirable quality for product or educational media.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "spard",
+      "prompt_id": 74,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "My score of 2 is confirmed. The massive discrepancy with the group median (7) is baffling unless other judges are ignoring the prompt's environmental context. The prompt is 'A smartphone with a cracked screen lying on a coffee-stained office desk'. The asset is only 'a smartphone with a cracked screen'. The entire scene, which constitutes a significant part of the request, is absent. A 7/10 implies a near-perfect match. A model that ignores half the prompt is not a near-perfect match. This is a major failure of alignment.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 2,
+      "fake_median": 7
+    }
+  ]
+}

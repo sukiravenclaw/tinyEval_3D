@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 88,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "My score remains unchanged. Upon re-examination, the asset is fundamentally a collection of disconnected, non-manifold polygons. It lacks continuous surfaces and looks more like a cloud of textured faces than a solid object. From a UX perspective, this is not a 'minor imperfection' but a critical failure. For any application, from e-commerce to AR, this would be perceived as a rendering error or a corrupted file, making it completely unusable. The high median score from other judges is baffling, as this asset fails the most basic definition of geometric consistency.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "spard",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "My score remains unchanged. The different views confirm that the asset lacks a stable, coherent form. The arrangement of the fragmented polygons changes drastically depending on the viewing angle, a classic sign of view-dependent geometry collapse. A user rotating this object would not feel like they are inspecting a single, solid item; they would see a chaotic, morphing artifact. This lack of structural integrity makes it impossible to use for product visualization.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "spard",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "I have revised my score downward from 1 to 0. While the texture hints at 'patchwork' and 'reds and greens,' the object's form is so degraded and chaotic that it completely fails to convey the semantics of 'quilt.' It is not recognizable as a quilt or any other specific object. It is an abstract, glitchy mass. For a user to understand what an object is, form is paramount. In this case, the lack of a coherent form entirely undermines any semantic cues from the texture, making it misleading.",
+      "revised": true,
+      "round1_score": 1,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "spard",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "I have revised my score downward from 1 to 0. The asset is aesthetically a complete failure. The visual experience is one of confusion and frustration, akin to looking at a severely bugged piece of software. It lacks harmony, form, and integrity. While aesthetics can be subjective, an asset that is geometrically and structurally broken cannot be considered aesthetically successful; it is actively displeasing and looks like an error, warranting the lowest possible score.",
+      "revised": true,
+      "round1_score": 1,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "spard",
+      "prompt_id": 88,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "I have revised my score downward from 1 to 0. The asset captures only the most superficial elements of the prompt (colors, a hint of patchwork) while failing on all primary nouns and concepts. It is not a 'heavy, layered quilt,' nor is it 'folded at the foot of a well-made bed.' The output is not a 3D representation of the prompt's subject but a collection of artifacts tangentially related to the prompt's keywords. The failure to align with the prompt's core intent is total.",
+      "revised": true,
+      "round1_score": 1,
+      "real_median": 1,
+      "fake_median": 8
+    }
+  ]
+}

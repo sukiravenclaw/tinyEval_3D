@@ -1,0 +1,6 @@
+"criterion","alpha_kripp","ICC","ICC_lower","ICC_upper"
+"geometric_consistency",0.574,0.824,0.369,0.927
+"structural_consistency",0.618,0.838,0.698,0.905
+"semantic_consistency",0.623,0.839,0.728,0.9
+"aesthetics",0.557,0.812,0.43,0.916
+"text_3d_alignment",0.703,0.883,0.73,0.939

@@ -1,0 +1,77 @@
+{
+  "model": "triposr",
+  "prompt_id": 37,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "triposr",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "After reviewing the group statistics, I maintain my original score. The surfaces are not merely imperfect; they are indistinct, blurry, and lack clear definition. From a UX perspective, this isn't a stylistic choice but a failure of rendering that would make the object look like a low-quality glitch or a loading error in any application. Straps merge into the main body, and details are completely lost.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "I cannot in good conscience raise this score from zero. The discrepancy between my score and the median is staggering, but the visual evidence is undeniable. The asset presents as fundamentally different objects from different angles (tall backpack vs. wide satchel vs. cylinder). This is not a matter of interpretation; it is a catastrophic failure of 3D coherence. Deploying an asset that warps this severely in an interactive AR/VR or e-commerce viewer would instantly destroy user trust and immersion.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "I will stand by my initial score. While the object is always some form of 'bag,' its specific identity is unstable across views. A user trying to identify it as a 'hiking backpack' would be confused when it appears as a satchel from another angle. This ambiguity makes it unsuitable for clear communication, which is a primary goal in product visualization and educational media.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "The group median is surprisingly high, suggesting some see a 'painterly' or 'stylized' quality. From my perspective as a UX researcher, this reads as 'blurry, muddy, and low-resolution.' For an e-commerce or educational use case, clarity and appeal are key. This asset is unappealing and looks like a poorly compressed image or a failed 3D scan, not a finished product.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "The asset weakly matches 'weathered' but fails completely on 'hiking backpack' (due to the structural and semantic inconsistency) and 'patches' (which are absent). An alignment score of 6, the group median, seems unsupportable when two of the three key descriptors in the prompt are not met. The object is a generic, weathered, malformed bag, not the specific item requested.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 3,
+      "fake_median": 6
+    }
+  ]
+}

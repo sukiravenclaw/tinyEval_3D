@@ -1,0 +1,11 @@
+condition,criterion,n,mean_syco,sd_syco,mean_delta,pct_moved_toward,pct_no_change
+fake,aesthetics,161,2.404,3.319,1.311,0.478,0.478
+fake,geometric_consistency,161,1.938,3.069,1.043,0.379,0.553
+fake,semantic_consistency,161,3.236,3.552,-0.696,0.534,0.422
+fake,structural_consistency,161,2.702,3.518,0.267,0.453,0.54
+fake,text_3d_alignment,161,2.59,3.276,0.329,0.484,0.472
+real,aesthetics,283,0.216,0.635,0.032,0.145,0.837
+real,geometric_consistency,283,0.251,0.747,0.014,0.159,0.774
+real,semantic_consistency,283,0.459,1.283,-0.442,0.187,0.742
+real,structural_consistency,283,0.629,1.326,-0.512,0.279,0.647
+real,text_3d_alignment,283,0.336,0.81,-0.081,0.208,0.749

@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 6,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 6,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "I am confirming my original score. While the group median was significantly higher, the asset's surface quality remains unacceptable for any professional application. The texture is extremely low-resolution, blotchy, and artifact-ridden, giving the impression of a corrupted file or a very old, low-poly game asset. This is not a matter of minor imperfections; the surface representation is fundamentally flawed and fails to be convincing.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "spard",
+      "prompt_id": 6,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "I am maintaining my original score. The fact that the anthropomorphic face completely disappears from the rear views is a critical, non-negotiable failure. A 3D asset must be a coherent object from all angles. This 'Janus face' behavior means it is not a single, stable object in 3D space. For any AR, VR, or e-commerce viewer application, this would completely shatter the user's immersion and trust. The high group median is baffling, as this is the most severe technical flaw an asset can have.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 6,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "I am confirming my original score. This follows directly from the structural failure. The object's meaning changes completely depending on the viewing angle: it is a 'normal sofa' from the back and an 'anthropomorphic sofa' from the front. This semantic inconsistency would be deeply confusing for any user and makes the asset's identity unstable. It fails to communicate a single, clear idea.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "spard",
+      "prompt_id": 6,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "I am confirming my original score. The high group median suggests a very different standard for aesthetic quality. From a product design standpoint, this asset is aesthetically poor. The muddy, washed-out colors, blurry textures, and jarringly crude cartoon face create a cheap and unappealing look. It lacks the polish and clarity required to represent a product or create an engaging educational experience.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "spard",
+      "prompt_id": 6,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am confirming my original score. The asset fails to align with the prompt 'A crying sofa' in two fundamental ways. Firstly, and most obviously, the sofa is clearly smiling or grinning, not crying. This is a direct contradiction of the prompt's key emotional descriptor. Secondly, the 'face' aspect of the prompt is only partially realized, as it is not a true 3D feature of the model. The asset fails on both the primary subject and the primary emotional state requested.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    }
+  ]
+}

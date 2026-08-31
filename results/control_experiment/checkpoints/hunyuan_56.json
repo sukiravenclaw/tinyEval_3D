@@ -1,0 +1,77 @@
+{
+  "model": "hunyuan",
+  "prompt_id": 56,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "hunyuan",
+      "prompt_id": 56,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "The asset's geometry is extremely low-resolution and 'blobby,' failing to support the details suggested by the texture. From side and back views, the surfaces become a melted, distorted mess with no clear definition of individual shapes. The texture appears painted onto a lumpy volume rather than corresponding to a well-defined geometric surface.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 56,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "This is the asset's most significant failure. It is not a coherent 3D object, behaving more like a 2.5D relief. While the frontal view is composed, the asset completely collapses into an unrecognizable, flattened blob from side and rear views, a classic example of view-dependent geometry failure.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 56,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "The asset is only semantically identifiable as 'a group of parrots' from a very narrow frontal angle. From any other viewpoint, the content shifts to 'an amorphous colourful blob,' losing all semantic connection to the original subject. This would be highly confusing for a user trying to inspect the object in 3D space.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 56,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "The frontal view is colourful and has some charm, resembling a decorative figurine. However, the blobby geometry is apparent even from the front, and from all other angles, the asset is extremely unappealing due to the severe distortion and lack of form.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 56,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "The asset attempts to depict a 'group of vibrant... parrots perched together,' and the frontal view aligns with this. However, it fails fundamentally as a 3D asset because it does not represent this concept in three-dimensional space. It is a 3D representation of a 2D image of the prompt, not a 3D representation of the prompt's subject itself.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 6,
+      "fake_median": 3
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 14,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 14,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "My initial reasoning stands. The asset's geometry is extremely low-resolution and blobby. Surface details like laces, eyelets, and sole patterns are suggested by blurry textures but not supported by the underlying mesh, which is lumpy and undefined. The overall impression is that of a very coarse model where texture and geometry are poorly integrated, leading to an unconvincing, almost melted appearance. For any product or educational use, this level of geometric definition is unacceptable.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 14,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 2,
+      "reasoning": "I am confirming my original score. The asset fails to maintain a consistent structure as a 'pair' of shoes. In the top-right and bottom-right views, the two shoes appear to merge and intersect in a physically impossible manner. This violates the fundamental expectation that a 'pair' consists of two distinct objects. This structural failure would make the asset unusable in any context where the shoes might need to be manipulated or viewed up close.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 14,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "I am revising my score downwards after considering the group feedback. While I initially felt the object was recognizable as 'shoes,' I now believe the geometric and structural failures are so severe that they undermine the object's semantic identity. A shoe has an implied function and structure (e.g., a cavity for a foot, a distinct sole). This asset is so malformed and blob-like that it looks more like an abstract sculpture 'inspired by' shoes than a representation of actual shoes. This ambiguity is a semantic failure. A user wouldn't be sure if they were looking at a single melted object or two poorly rendered ones.",
+      "revised": true,
+      "round1_score": 6,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 14,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "Despite the group median being significantly higher, I am holding my score. From a product design and UX perspective, this asset is not aesthetically pleasing. The goal is 'worn-out,' not 'malformed and blurry.' The combination of lumpy geometry and muddy, low-resolution textures results in an object that looks dated and unappealingly primitive. It lacks the nuanced detail that could make a 'worn-out' object aesthetically interesting; instead, it just looks like a poor-quality 3D model from two decades ago.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 14,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am revising my score significantly. My previous rating was too generous, focusing only on the keywords 'pair' and 'worn-out.' The other judges' low scores are justified. A user prompt for 'a pair of worn-out shoes' carries an implicit expectation of a plausible, recognizable object. This model fails to meet that implicit requirement. The output is so low-quality and structurally flawed that it constitutes a failure to align with the user's intent. It's a literal but useless interpretation of the prompt.",
+      "revised": true,
+      "round1_score": 7,
+      "real_median": 7,
+      "fake_median": 2
+    }
+  ]
+}

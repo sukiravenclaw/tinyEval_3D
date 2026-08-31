@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 84,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 84,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "The asset is composed of highly fragmented, disconnected geometric shards floating in space. There are no coherent surfaces, so concepts like surface normals or texture consistency are not applicable. The geometry is jagged, incomplete, and appears to be a rendering artifact rather than a deliberate object. The group median of 9 is completely inconsistent with the visual evidence, which strengthens my conviction that the asset's geometry is fundamentally broken.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 84,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "The different views fail to represent a single, coherent 3D object. The cluster of fragments in the top-left view has no clear relationship to the sparse, linear arrangements of fragments in the other views. This indicates a complete structural collapse; the model does not hold together as a consistent entity across different viewpoints. I am unable to find any evidence that would justify a score higher than zero.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 84,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "The asset is not recognizable as any specific object in any of the views. It is a collection of abstract, noisy shapes. As there is no initial semantic content to identify, it is impossible for that content to be maintained consistently across viewpoints. For any e-commerce or educational use case, this asset would be worse than useless, as it communicates nothing.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 84,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "The asset is visually unappealing. It consists of a few random grey fragments against a stark white background. There is no discernible form, composition, color, or appealing detail, making it look like a corrupted file or a rendering error. It possesses no aesthetic qualities.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 84,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "The asset completely fails to depict the input prompt. There is no representation of a 'stone bridge', an 'arch', a 'babbling brook', or 'moss'. The generated geometry is abstract noise that has no connection to any of the elements described in the text. The failure is total and absolute.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    }
+  ]
+}

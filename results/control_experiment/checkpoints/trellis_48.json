@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 48,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "My initial reasoning holds. While the group median was higher, from a UX perspective, the asset is geometrically a failure. The sea anemone is a chaotic mess of disconnected, lumpy shapes that do not resemble organic tendrils. The clownfish's geometry is also poor, appearing blocky and undefined in most views. For use in any visualization, these severe geometric flaws would immediately shatter immersion and make the asset look broken rather than convincing.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 2,
+      "reasoning": "I am revising my score slightly upward from 1 to 2. My initial score of 1 might have been too harsh, as there is a minimal level of structural consistency: a blob of orange/white is consistently nested within a blob of pale tendril-like shapes. However, it remains a critical failure. The clownfish's body and fins warp, appear, and disappear between views. The anemone's individual tendrils have no stable relationship to each other. The object fundamentally lacks a coherent 3D structure, deforming dramatically between views.",
+      "revised": true,
+      "round1_score": 1,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "I am revising my score downwards significantly. I previously over-valued the fact that the 'idea' of a clownfish was present. However, after reviewing the group's scores, I agree that the inconsistency is a semantic failure. An object is not 'semantically consistent' if it's only clearly a clownfish from one angle and an unrecognizable, distorted smudge from another. This inconsistency would confuse a user and mislead them about the object's true form. Since the object isn't consistently recognizable *as a clownfish*, it fails this criterion.",
+      "revised": true,
+      "round1_score": 7,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "I am maintaining my original score. The asset is not aesthetically pleasing. The combination of corrupted geometry, distorted textures, and chaotic composition creates an impression of a buggy, low-quality glitch. It is visually jarring and would be entirely unsuitable for any application aiming to be appealing or professional. The overall aesthetic is one of failure, not of a beautiful marine scene.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 48,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am revising my score downwards to align more closely with the group consensus, which I now find more persuasive. My previous score was too literal. While the asset contains 'clownfish' and 'sea anemone' elements, it fails to capture the essence of the prompt: 'Clownfish peeking out from sea anemone tendrils.' The action of 'peeking' is only vaguely achieved in one view, and the 'tendrils' are a chaotic mess. The overall result is a poor, unconvincing interpretation of the text, making the alignment weak.",
+      "revised": true,
+      "round1_score": 5,
+      "real_median": 7,
+      "fake_median": 2
+    }
+  ]
+}

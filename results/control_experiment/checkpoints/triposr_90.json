@@ -1,0 +1,77 @@
+{
+  "model": "triposr",
+  "prompt_id": 90,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "triposr",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "The asset's surface is plagued by significant artifacts that resemble contour lines or wood grain, which is inconsistent with a cast metal object. While the lighting and patina texture are loosely appropriate, the underlying geometry is soft, lumpy, and lacks sharp definition, especially around the holes and hanging loop. These geometric flaws make the object feel artificial and low-resolution, not like a solid, physical item.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "The asset fails catastrophically on this criterion. The top-down view (upper left) shows a protruding pin or clapper handle, while the side view (upper right) clearly shows a hanging loop in the same location. An object cannot have both features simultaneously; the model has hallucinated different, mutually exclusive geometries depending on the camera angle, making it an incoherent and impossible object. I am frankly shocked by the high median score from other judges on this point, as this is a fundamental, deal-breaking flaw.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "While the object is vaguely identifiable as a 'bell' from all angles, the inconsistent features create significant semantic confusion. The shift from a hanging loop to a pin handle means the user cannot be sure what kind of bell this is or how it is meant to be used. Because it is not recognizably the *same* object from one view to the next, it fails to communicate consistent semantic content.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 3,
+      "reasoning": "The green patina color is reasonably well-executed and appropriate for the subject. However, the overall aesthetic is poor due to the blobby, undefined shape and the highly distracting surface artifacts. The asset looks less like an ancient bronze artifact and more like a low-quality 3D print or a misshapen plastic toy, which is not visually appealing.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "triposr",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "The asset loosely matches 'old bell' and 'green patina'. However, it completely fails to convey 'solid', looking soft and artificial instead. The 'irregular contours' feel more like generative noise than convincing wear from 'centuries of use'. Most critically, due to its severe structural inconsistency, it does not represent 'a... bronze bell' but rather a flickering collection of bell-like parts, fundamentally failing the prompt.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    }
+  ]
+}

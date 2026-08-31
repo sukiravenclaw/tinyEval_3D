@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 96,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 3,
+      "reasoning": "I am confirming my previous score. The asset's geometry is very soft and appears low-resolution, with rounded edges where one would expect crisp metalwork. The patina texture seems painted on and doesn't always align convincingly with the underlying form, particularly in crevices or on flat surfaces. The glass panes have a muddled, foggy quality that doesn't clearly communicate translucency or the light source within.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "I am confirming my score of 0. This is a catastrophic failure. The asset exhibits a severe Janus issue, with the top structure changing completely between viewpoints: two views show a carrying handle, while the other two show a pointed finial. The object is not structurally coherent and cannot be interpreted as a single, consistent 3D model. For any user-facing application like AR or e-commerce, this is a non-starter.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "I am revising my score downwards from 7 to 2. My initial assessment was too generous. While the object is always recognizable as the general category of 'lantern,' it presents two mutually exclusive and contradictory subtypes: a portable lantern (with a handle) and a stationary one (with a finial). This actively misleads the user about the object's specific identity and function. The semantic content is therefore highly inconsistent and confusing, even if the broad category remains stable.",
+      "revised": true,
+      "round1_score": 7,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 4,
+      "reasoning": "I am confirming my previous score. The asset has a certain painterly appeal, with a pleasing color combination of aged copper and cyan light. It successfully evokes a vintage, moody atmosphere. However, the low-resolution appearance and, most critically, the jarring structural inconsistencies between views make it aesthetically confusing and ultimately unappealing as a singular object.",
+      "revised": false,
+      "round1_score": 4,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 96,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am confirming my score of 2. While the asset loosely matches stylistic keywords like 'old lantern' and 'patina copper', it fails at the most fundamental level of the prompt: to create *a* single, coherent lantern. Instead, it generated two different objects based on camera angle. This gross misinterpretation of the task's core requirement represents a very poor alignment, regardless of stylistic matches.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

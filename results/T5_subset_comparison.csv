@@ -1,0 +1,5 @@
+"method","n_items","spearman_rho","rho_sd","loocv_rho"
+"IRT-theta-stratified (tinyEval3D)",30,1,NA,0.935
+"Classical difficulty-stratified",30,1,NA,0.935
+"Top-discrimination",30,1,NA,NA
+"Random (mean)",30,0.956,0.063,NA

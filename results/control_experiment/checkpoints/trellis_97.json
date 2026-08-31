@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 97,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 97,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "My initial reasoning stands. The asset is not a coherent mesh but a jumble of jagged, floating fragments with large holes. From a technical standpoint, this is fundamentally broken. The high median score from the group is inexplicable if this is being judged as a usable 3D model, as it would be unusable in any standard 3D pipeline without a complete rebuild. I cannot in good faith rate this as geometrically consistent.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 97,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "I am confirming my initial score. The side view proves the object has no depth and is essentially a flat plane or a 'cardboard cutout'. This is the most critical failure for a 3D asset intended for viewer interaction. An object that is not structurally coherent across all views is misleading and breaks the illusion of reality, making it completely unsuitable for AR/VR or product visualization. The group's median score of 8 is irreconcilable with the visual evidence.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 97,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "My score remains unchanged. An object that is identifiable as 'tools on a board' from the front but becomes a meaningless abstract line from the side is semantically inconsistent. A user rotating this object would become confused, as its identity and meaning are not preserved across different views. This inconsistency is a major UX failure.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 97,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "I am revising my score slightly upward. While I personally find the asset unappealing, looking like a corrupted file with a muddy, indistinct texture, I can concede that the group's high median score suggests others may perceive this as an intentional, albeit gritty or deconstructed, art style. However, for the intended use cases of e-commerce or education, this chaotic appearance hinders clarity and recognition, so my score remains very low. It is not visually pleasing or convincing.",
+      "revised": true,
+      "round1_score": 1,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 97,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am maintaining my score. The prompt explicitly asks for 'solid' tools. This asset is the antithesis of solid; it is a hollow, paper-thin, fragmented shell. This is a primary failure to meet a key physical descriptor in the prompt. While it vaguely resembles tools on a pegboard from one angle, its fundamental physical nature is incorrect, warranting a very low score.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 2,
+      "fake_median": 7
+    }
+  ]
+}

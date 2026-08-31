@@ -1,0 +1,77 @@
+{
+  "model": "hunyuan",
+  "prompt_id": 90,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "hunyuan",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 3,
+      "reasoning": "Upon review, I believe my initial score was too generous. While the texturing is passable, the low-polygon geometry is a significant flaw. The curves of the object are not smooth but appear faceted and lumpy, and the edges of the cutouts are jagged. For any use case requiring close inspection, such as product visualization, these geometric shortcomings would be immediately apparent and detract from the object's believability. A score of 3 more accurately reflects an asset with good texturing but poor underlying geometry.",
+      "revised": true,
+      "round1_score": 4,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "My initial assessment remains unchanged. The asset is fundamentally broken. It depicts an object with holes from three viewpoints but as a solid object from the fourth (bottom-left). This is a critical structural inconsistency, rendering the asset an impossible object. For any interactive 3D application (e-commerce, AR/VR, education), this view-dependent error would shatter immersion and completely confuse the user about the object's nature. This is a non-negotiable failure, and I stand by my score of 1.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "My score remains unchanged. The asset's identity is fatally compromised by its structural inconsistency. A user cannot determine if they are looking at a solid object, a lantern-like cover, or a bell. Because the object's form changes depending on the viewing angle, it is impossible to form a coherent mental model of what it is. This ambiguity prevents it from communicating any clear semantic content.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 3,
+      "reasoning": "My previous score of 5 was inconsistent with my written reasoning. While the patina and rust textures are effective at conveying an 'aged' quality, the overall aesthetic is compromised by the crude, lumpy geometry. An appealing asset requires both good texturing and a well-defined form. This model only has one of those. Therefore, I am revising my score down to 3 to reflect an asset that is only moderately appealing due to its significant formal deficiencies.",
+      "revised": true,
+      "round1_score": 5,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 90,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am confirming my low score despite the high group median. The prompt specifically requested a 'solid... bell'. This asset is neither. It is not 'solid' because it has large holes (in most views), and its identity as a 'bell' is weak at best. It looks more like a ventilator cap or a poultry feeder. While it successfully captures the 'old' and 'green patina' aspects, it fails on the two most crucial nouns in the prompt. For any practical purpose, this is a failure to generate the requested object.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

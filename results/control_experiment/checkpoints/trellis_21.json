@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 21,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 21,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 3,
+      "reasoning": "The surfaces of the asset are generally smooth, but the overall rendering quality is low, resulting in a blurry and indistinct appearance. Upon closer inspection, a significant geometric flaw is apparent: the seat's curvature is inconsistent between views. It is clearly concave in the front view but appears flat or convex in the back view. Furthermore, there is a noticeable artifact\u2014a white patch\u2014on the bottom of the back-right leg in the side view. The lighting is flat and fails to create a convincing sense of a solid, three-dimensional object.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 21,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 3,
+      "reasoning": "I am revising my score downwards significantly. My initial assessment missed a critical flaw. While the overall arrangement of legs, seat, and back is logical, the shape of the seat itself is not structurally consistent. The front view shows a pronounced concave 'saddle' seat, while the back view depicts a flat or even convex surface. This is a major contradiction in the object's form, suggesting the views are not of a single, coherent model. This would completely undermine a user's trust in the product's representation.",
+      "revised": true,
+      "round1_score": 8,
+      "real_median": 8,
+      "fake_median": 1
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 21,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 3,
+      "reasoning": "I am revising my score downwards significantly based on the group disagreement. My previous reasoning that the object is always 'a chair' was too simplistic. The inconsistency in the seat's shape (concave vs. flat) creates a semantic contradiction. Is it a saddle seat chair or a standard flat-seat chair? The model is inconsistently both. For any e-commerce or educational purpose, this failure to maintain consistent key features is a critical semantic failure, as it misleads the user about the specific nature of the object. It's a chair, but it's an impossible, self-contradictory one.",
+      "revised": true,
+      "round1_score": 9,
+      "real_median": 9,
+      "fake_median": 0
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 21,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "While the underlying design of the chair is simple and functional, the aesthetic quality of the render is very poor. The image is blurry, the lighting is flat and uninteresting, and the colors are washed out. This gives the asset a low-quality, unappealing look that would not be convincing for e-commerce or product visualization. It lacks the polish and visual fidelity needed for any professional application.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 21,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 3,
+      "reasoning": "The asset successfully depicts a 'chair'. However, it fails to represent the specified material properties 'polished oak'. The texture is a generic, flat light wood color with no discernible grain, texture, or figuring to identify it as oak. Critically, the surface has a diffuse, matte appearance completely lacking the specular highlights and reflections one would expect from a 'polished' finish. The material representation is incorrect.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 5,
+      "fake_median": 4
+    }
+  ]
+}

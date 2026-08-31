@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 5,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "After reviewing the group statistics, which show a shockingly high median of 8, I have re-examined the asset and must stand by my original score of 0. The visual evidence is unambiguous: the object's surfaces are not planar or rigid as a house's should be. They are crumpled, lumpy, and distorted, resembling melting wax or fabric. There are significant rendering artifacts and a complete lack of geometric integrity. The group score is irreconcilable with the asset's actual geometry.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 1,
+      "reasoning": "I am maintaining my score of 1. The group median of 7 suggests a mostly coherent structure, but this is not the case. While a vague 'house' shape is present in some views, the object's form warps and changes significantly between views. It's impossible to build a stable mental model of this object as a single, consistent 3D structure. The relationship between features is not preserved across viewpoints.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "My score of 2 remains unchanged. The object is barely recognizable as a house due to extreme distortion and near-zero contrast against the white background. Key identifying features like doors and windows are faint, malformed, and inconsistent across views. A user would struggle to identify this object with any certainty. A group median of 7 is far too high for an asset that so poorly communicates its intended meaning.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "I am confirming my score of 0. An aesthetic score of 9, the group median, is reserved for beautiful, appealing, and well-executed assets. This asset is the antithesis of that. It is a nearly invisible, low-contrast, distorted white blob on a white background. It is deeply unappealing and looks like a catastrophic rendering error. It has no positive aesthetic qualities whatsoever.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 5,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "I am standing by my score of 0. The prompt was 'A brick house'. The provided asset has zero indication of bricks, texture, or appropriate coloration; it is a uniform white. Furthermore, its identity as a 'house' is extremely tenuous due to the poor geometry. It fails to meet the prompt on every level. The group median of 8 is inexplicable, as there is a complete mismatch between the text and the visual output.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    }
+  ]
+}

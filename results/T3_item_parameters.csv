@@ -1,0 +1,6 @@
+"model","pass_rate","n_pass","n_items","discrimination","difficulty"
+"trellis",0.33,33,100,NA,0.67
+"hunyuan",0.28,28,100,NA,0.72
+"spard",0.19,19,100,NA,0.81
+"triposr",0.04,4,100,NA,0.96
+"unique3d",0,0,100,NA,1

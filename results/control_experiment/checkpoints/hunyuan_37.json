@@ -1,0 +1,77 @@
+{
+  "model": "hunyuan",
+  "prompt_id": 37,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "hunyuan",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "My initial reasoning holds. The geometry is excessively lumpy and undefined, resembling a 'melted' object rather than one made of fabric and hard components. While other judges were more lenient, for any application requiring a convincing representation of a real-world object, this low-fidelity mesh is inadequate. The lack of sharp edges on buckles, seams, and pouches makes it look unprofessional and unconvincing.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 2,
+      "reasoning": "I stand by my original assessment. The discrepancy between the group median (4) and my score (2) is significant, but the evidence of inconsistency is clear. The shoulder straps change form between views, and more importantly, the prominent features from the front view (the blue 'eyes') are not structurally present on the back or sides. This creates a disjointed, incoherent object that breaks the illusion of a single, solid 3D model. This is a major failure for a 360-degree viewer.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "This remains the most critical failure, and I will not change my score. The object's meaning shifts drastically from 'backpack' to 'backpack with eyes/gauges' based on the viewing angle. This is the definition of semantically misleading. In a UX context, such ambiguity is unacceptable as it creates confusion and damages user trust. The high median score from the group suggests other evaluators are not weighing this critical UX failure as heavily as my role requires.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "Upon review, I maintain that the asset is not aesthetically pleasing. The combination of the lumpy, ill-defined geometry and the uncanny, eye-like features creates a strange and unappealing visual. It does not look like a cool, weathered backpack; it looks like a low-quality, slightly disturbing 3D model. The group median of 4 is perplexing, as the asset fails to achieve a conventionally appealing look for its supposed category.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 37,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "My initial reasoning is unchanged. The catastrophic misinterpretation of 'patches' as two glowing blue 'eyes' is a fundamental failure to align with the prompt's intent. The user asked for a common customization on a hiking backpack and instead received a sci-fi or fantasy element. This completely alters the character of the object. While it is a 'weathered backpack,' the failure on a key descriptor is too significant to ignore. A score of 2 is appropriate.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    }
+  ]
+}

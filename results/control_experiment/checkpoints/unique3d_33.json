@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 33,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "My initial reasoning stands. The asset's geometry is barely present, appearing as faint, ghostly outlines and blotches rather than a solid surface. What little form is visible is extremely low quality, with no discernible texture or consistent surface normals. It looks more like a rendering error than a 3D model. Despite the high median score from the group, the visual evidence provided shows an object that is not geometrically coherent.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "My previous reasoning is unchanged. The asset is completely incoherent across the different views. From the front, it appears as a crude, rectangular outline, but from the side, it transforms into a completely different, vertically oriented, leaf-like shape. This represents a catastrophic failure of structural integrity. For any use in AR or e-commerce, this is a non-starter, and I cannot reconcile the high median score with this fundamental flaw shown in the images.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "My original reasoning is confirmed. The semantic content is not maintained across viewpoints. A user would see a pillow-like shape from one angle and a leaf-like or abstract shape from another, leading to complete confusion about the object's identity. The asset fails to be recognizably the same object from all sides, which is a critical failure for user understanding.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "I stand by my original assessment. The asset has no aesthetic appeal. It is washed-out, fragmented, and visually confusing due to its inconsistent structure. The lack of color, detail, and coherent form makes it look like a technical glitch, which is highly unappealing. I do not see the 'ethereal' or 'minimalist' qualities that might lead others to a high score; I see a broken render.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 33,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "My previous reasoning remains valid. The asset is a very poor representation of the prompt 'An embroidered silk pillow with tassels'. Only two views vaguely resemble a pillow, and even then, the key attributes of 'embroidered', 'silk', and 'tassels' are entirely missing or rendered as tiny, unidentifiable nubs. The other two views bear no resemblance to a pillow at all, making this a severe failure of alignment.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    }
+  ]
+}

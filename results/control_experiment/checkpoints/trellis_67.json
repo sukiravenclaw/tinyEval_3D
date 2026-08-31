@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 67,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 67,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "My initial reasoning holds. The asset suffers from significant geometric flaws, particularly in the knitted throw which has a large, unnatural hole and a melted, blob-like appearance. The chair's legs and base are poorly defined, appearing mushy and indistinct across all views. For any serious e-commerce or AR application, this lack of geometric integrity is a non-starter. I am maintaining my low score despite the higher group median because these flaws are objective and severe.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 67,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 3,
+      "reasoning": "I am confirming my original score. There is a major, irreconcilable structural inconsistency in the base of the chair. The front and back views show four distinct, stubby legs, while the side views depict a continuous, curved sled-style base. These two designs are mutually exclusive and indicate a complete failure to generate a coherent 3D structure. This would be profoundly confusing for any user interacting with the model.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 67,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 3,
+      "reasoning": "Upon reflection and considering the group median, I am revising my score downwards significantly. I initially rated it highly because it was always a 'chair with a blanket'. However, I am now convinced that the structural contradiction between having legs and having a sled base creates a profound semantic inconsistency. The viewer is left asking 'What kind of chair is this?', which is a failure of semantic communication. The object is not consistently one thing, which is a worse flaw than I initially assessed.",
+      "revised": true,
+      "round1_score": 6,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 67,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 4,
+      "reasoning": "I am revising my score slightly upwards. While the blurry textures, melted forms, and geometric errors make the asset look artificial and unappealing, my initial score of 3 may have been too harsh. The asset does evoke a general 'cozy leather chair' feeling, which has some minor aesthetic value. A non-expert might find it 'weird' rather than actively repellent. The new score of 4 reflects that it is still poor, but not a complete aesthetic failure.",
+      "revised": true,
+      "round1_score": 3,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 67,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "My initial reasoning stands. The asset fails to match the prompt on a key descriptor, as it depicts a stationary armchair, not a 'recliner'. This is a primary failure. Furthermore, the 'worn' quality of the leather is not evident; the texture is a generic, uniform brown. It correctly shows a 'knitted throw draped over the back', but the failure to create the correct type of furniture is a significant misalignment that justifies the very low score.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    }
+  ]
+}

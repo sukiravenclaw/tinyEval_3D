@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 78,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 78,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "The asset exhibits significant geometric flaws. The rims of both the cup and saucer are jagged and uneven, not smooth as they would be on a real object. The handle is particularly problematic, appearing as a lumpy, distorted mass with inconsistent surfacing, which detracts heavily from the illusion of a solid object.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 78,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 2,
+      "reasoning": "There is a major structural inconsistency in the handle of the teacup. Its shape and attachment point appear to morph between different views, ranging from a somewhat complete loop to a broken fragment. While the cup and saucer maintain their basic forms, this view-dependent change in a key feature is a serious flaw.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 78,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 2,
+      "reasoning": "Upon review, I am revising my score. My initial assessment focused too narrowly on basic object identification. While the object is consistently identifiable as a teacup, its severe structural and geometric flaws mean that it consistently communicates 'broken, glitchy 3D model' rather than 'functional teacup'. For any UX application (e-commerce, AR), this is highly misleading and communicates the wrong semantic content about the product's state and quality. The semantic integrity is therefore very low.",
+      "revised": true,
+      "round1_score": 8,
+      "real_median": 8,
+      "fake_median": 1
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 78,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "The concept of a floral teacup is inherently appealing, but the execution here is very poor. The jagged geometry and distorted handle make the object look broken and glitchy rather than delicate. The blurry texture lacks the sharpness and vibrancy needed to make the floral pattern truly attractive, resulting in an overall unappealing visual.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 78,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 1,
+      "reasoning": "I am revising my score downwards. While the asset contains a teacup, saucer, and floral pattern, it completely fails on every single descriptor in the prompt. It is the opposite of 'delicate', does not look like 'porcelain', and the pattern is too blurry and malformed to be 'intricate'. The failure is not merely an omission but a contradiction of the prompt's core intent, warranting a minimal score.",
+      "revised": true,
+      "round1_score": 3,
+      "real_median": 8,
+      "fake_median": 1
+    }
+  ]
+}

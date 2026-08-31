@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 61,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "Upon closer inspection, my initial score was too generous. While there are no obvious non-manifold errors, the geometry of the individual vegetables is extremely poor. They are blob-like, merge into each other indistinctly, and lack any defining detail. The textures seem to be projected onto these overly simplistic forms, which contributes to the unconvincing, toy-like appearance. This is not just 'low-fidelity'; it's malformed to a degree that actively hinders recognition of individual items, which is a significant flaw.",
+      "revised": true,
+      "round1_score": 3,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "I am confirming my initial score of zero. The group median of 2 is, from my UX-focused perspective, alarmingly high. An asset that fundamentally changes its contents when viewed from different angles (the Janus-face problem) is not a 3D object in any practical sense. The appearance of a large, sliced vegetable in the back view that is absent from the front is an absolute failure. For any AR/VR or interactive e-commerce use case, this is not just an imperfection; it is a critical, disqualifying flaw that would shatter user trust and immersion. It is functionally broken.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "I am revising my score downwards. While the asset consistently represents the broad category of 'basket of vegetables', its specific semantic content is completely unreliable due to the structural inconsistencies. A user would be actively misled about the specific vegetables included. For e-commerce (e.g., a grocery delivery service) or educational media, this is a catastrophic failure. Since the primary semantic purpose of such an asset is to communicate its specific contents, and it fails entirely at this, a score of 1 is more appropriate than my previous 2.",
+      "revised": true,
+      "round1_score": 2,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 3,
+      "reasoning": "I am revising my score upward to align closer to the group median. While I still find the plasticky textures and flat lighting unappealing, I can concede that the composition of the front view (top-left) has a certain basic charm in its arrangement and use of color. If one were to ignore the severe technical problems and view it purely as a static, 2D image, it is not entirely devoid of appeal. My initial low score was likely overly influenced by the asset's other failures.",
+      "revised": true,
+      "round1_score": 2,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 61,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 1,
+      "reasoning": "I am revising my score down significantly. My initial rating of 4 was far too literal, focusing only on the keywords 'basket' and 'vegetables'. The group median of 1 rightly suggests that a text prompt for a 3D object implicitly demands a single, coherent object that is structurally consistent. This asset fails that fundamental, implicit requirement. It is not 'a collection... arranged in a... basket'; it is a collection of conflicting 2D views stitched together into a broken 3D representation. It therefore fails to align with the core intent of the prompt.",
+      "revised": true,
+      "round1_score": 4,
+      "real_median": 8,
+      "fake_median": 1
+    }
+  ]
+}

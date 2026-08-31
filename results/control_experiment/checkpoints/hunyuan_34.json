@@ -1,0 +1,77 @@
+{
+  "model": "hunyuan",
+  "prompt_id": 34,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "hunyuan",
+      "prompt_id": 34,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "The surfaces are lumpy and poorly defined, particularly the tree trunk, which has an amorphous, blobby quality. The guitar appears partially fused with the trunk rather than resting against it. A major flaw is the large, unnatural hollow void at the top of the trunk, which makes the model look broken and incomplete.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 34,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "The asset is not structurally coherent across views. The tree trunk appears as a wide, solid mass from the front, but collapses into a thin, almost flat slab from the side. This is a classic case of view-dependent geometry, failing to represent a stable, believable 3D object.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 4,
+      "fake_median": 5
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 34,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "The asset fails to maintain semantic consistency. A primary subject, the guitar, is present in the front and side views but completely disappears from the rear view. A user would be fundamentally misled about the object's composition, as key features vanish upon rotation.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 34,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 1,
+      "reasoning": "The model is visually unappealing. The textures are muddy and low-resolution, the colors are drab, and the overall form of the tree trunk is shapeless. The black void at the top is a significant visual defect that makes the entire asset look like a buggy, unfinished render.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "hunyuan",
+      "prompt_id": 34,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "The asset weakly aligns with the prompt. While it contains a 'guitar' and a 'tree', the tree is not a recognizable 'old oak' but a malformed stump, and the guitar is not 'resting against' it in a plausible 3D arrangement. Because the guitar is not present from all angles, the model fails to depict the core spatial relationship described in the prompt.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

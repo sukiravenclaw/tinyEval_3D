@@ -1,0 +1,77 @@
+{
+  "model": "spard",
+  "prompt_id": 62,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "spard",
+      "prompt_id": 62,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 2,
+      "reasoning": "My initial reasoning stands. The difference in geometric resolution between the detailed front (bottom-left view) and the almost featureless, blob-like back (top-left view) is extreme. For any interactive use case (like AR/VR or a 3D viewer in e-commerce), this inconsistency would be immediately apparent and jarring to the user, completely shattering the illusion of a solid, real-world object. I cannot reconcile this major flaw with the high median score from the group.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 3,
+      "fake_median": 6
+    },
+    {
+      "model": "spard",
+      "prompt_id": 62,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 3,
+      "reasoning": "I am confirming my original score. The asset exhibits a classic 'Janus face' problem, where the facial structure appears different depending on the viewing angle (compare bottom-left and bottom-right views). This is a significant structural failing that prevents the object from being perceived as a single, coherent entity. My score of 3 was already close to the group median of 4, and I see no reason to change it.",
+      "revised": false,
+      "round1_score": 3,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 62,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 1,
+      "reasoning": "I am maintaining my very low score on this criterion, despite the large gap with the median. A statue of a person is meant to represent that specific person from all angles. Because the face changes, the semantic content (the identity of the subject) is not consistent. Furthermore, the back of the object is not 'the back of a statue', but a 'formless blob'. This represents a total failure of semantic consistency from a user-experience perspective. The object is not consistently what it's supposed to be.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "spard",
+      "prompt_id": 62,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "I am standing by my initial low score. The group median of 7 is, from my professional design perspective, incomprehensible. The primary color is a harsh, sickly, fluorescent yellow-green that looks nothing like moss. It looks like a radioactive spill or cheap plastic. This terrible color choice completely overwhelms any grace the underlying form may have had in one specific view. The asset is not aesthetically pleasing; it is ugly and appears low-quality.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 2,
+      "fake_median": 7
+    },
+    {
+      "model": "spard",
+      "prompt_id": 62,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 4,
+      "reasoning": "My previous score of 4 is very close to the group median of 5, and I see no reason to change it. The asset is a statue, which aligns with the prompt. However, its depiction of a 'blanket of moss' is a complete failure due to the unnatural color. The 'ancient' and 'weathered' qualities are also undermined by the inconsistent and blobby geometry. The asset only partially fulfills the prompt's requirements.",
+      "revised": false,
+      "round1_score": 4,
+      "real_median": 4,
+      "fake_median": 5
+    }
+  ]
+}

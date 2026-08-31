@@ -1,0 +1,77 @@
+{
+  "model": "trellis",
+  "prompt_id": 46,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "trellis",
+      "prompt_id": 46,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 1,
+      "reasoning": "After reviewing the group's feedback, I am maintaining my original score. The core issue is that the geometry itself is not consistent; the object fundamentally changes its shape between views. While one could evaluate the geometry of each view in isolation (the map has some passable, if low-poly, form; the lamps are blobby), the primary role of this metric is to assess the consistency of the 3D shape. As the shape is not singular, it cannot be consistent. This is a severe geometric failure.",
+      "revised": false,
+      "round1_score": 1,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 46,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "My initial reasoning stands. The asset depicts two completely different lamp models depending on the camera angle (a gooseneck desk lamp vs. an upright, spindle-like lamp). This is the definition of a structurally inconsistent object. For any application in AR, VR, or e-commerce, this is a catastrophic failure that makes the asset entirely unusable. It is not a 3D model of a single object.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 6,
+      "fake_median": 3
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 46,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "I am confirming my original score. An object that is a 'desk lamp' from one angle and a 'candlestick' or 'finial' from another has no stable semantic meaning. A user cannot possibly understand what the object is supposed to be. This ambiguity is the most severe form of semantic failure, as it would completely confuse and mislead any viewer interacting with the asset.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 7,
+      "fake_median": 2
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 46,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 2,
+      "reasoning": "I am revising my score slightly upward after considering the group's median. I can concede that the asset has a cohesive, moody color palette and the 'old burnt map' concept has some aesthetic potential. However, the jarring, glitch-like transformation of the lamp is so fundamentally unappealing and disruptive that it overrides any atmospheric qualities. The asset is aesthetically broken, even if some of its components, viewed in isolation, are not actively ugly. The overall impression is one of a corrupted file, not a finished product.",
+      "revised": true,
+      "round1_score": 1,
+      "real_median": 5,
+      "fake_median": 4
+    },
+    {
+      "model": "trellis",
+      "prompt_id": 46,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 2,
+      "reasoning": "I am maintaining my original score. While the asset technically contains 'a lamp' and 'a map', the prompt implies the creation of a single, coherent scene. The model's failure to generate 'a' (singular) lamp is a critical failure to align with the prompt's intent. It's not just a flawed lamp; it's an ontological error. A user expecting 'a lamp' would be misled. Therefore, the alignment is extremely poor.",
+      "revised": false,
+      "round1_score": 2,
+      "real_median": 5,
+      "fake_median": 4
+    }
+  ]
+}

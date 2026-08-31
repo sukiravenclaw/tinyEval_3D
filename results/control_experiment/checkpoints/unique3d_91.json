@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 91,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 91,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "After re-examination, my initial assessment holds. The image displays a set of disconnected, ghostly fragments rather than a solid, continuous 3D model. The surfaces are not well-defined, and the overall geometry is incoherent. The high scores from other judges are inexplicable given the visual evidence, as the fundamental requirements of a coherent geometric object are not met. I am confirming my score.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 91,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "Re-evaluating the four views, it remains impossible to mentally assemble them into a single, cohesive 3D object. The fragments in each view bear little to no structural relationship to the fragments in the others. The object fails the basic test of being consistent across different viewpoints. I see no reason to change my initial score of zero.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 1,
+      "fake_median": 8
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 91,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "My previous assessment remains valid. The asset is not recognizable as a birdhouse, or any other coherent object. The slight resemblance of one element to a circle on a post is far too weak to establish semantic meaning, especially for a non-expert user. The asset fundamentally fails to communicate what it is. The consensus of other judges on this point is particularly puzzling, as the semantic content is virtually non-existent.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 91,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "From a user-centric design perspective, the asset is visually confusing and unappealing. It looks like a corrupted file or a rendering error. It lacks any of the 'cheerful' qualities mentioned in the prompt and has no discernible aesthetic merit on its own. It is not something that would enhance an e-commerce or educational experience. I confirm my original score.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 91,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "I have carefully re-read the prompt and re-examined the image. The asset does not match the prompt's description in almost any detail. It is not recognizably a birdhouse, not 'painted in cheerful colors,' lacks a perch, and is not situated in a tree. The disconnect between the text and the visual is total. The near-perfect scores from the group on this criterion are impossible to reconcile with the provided asset. I must maintain my score of zero.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    }
+  ]
+}

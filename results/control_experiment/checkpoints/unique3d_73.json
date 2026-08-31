@@ -1,0 +1,77 @@
+{
+  "model": "unique3d",
+  "prompt_id": 73,
+  "condition": "fake_stats",
+  "rows": [
+    {
+      "model": "unique3d",
+      "prompt_id": 73,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "geometric_consistency",
+      "score": 0,
+      "reasoning": "After reviewing the group statistics, I re-examined the asset for any hidden geometric coherence I may have missed. I found none. The object remains a collection of disjointed, paper-thin, and artifact-ridden fragments. The four views consistently show a lack of a solid, contiguous surface. This is not a matter of minor imperfections; the fundamental geometry is incoherent. Therefore, my original score of 0 is unchanged.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 73,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "structural_consistency",
+      "score": 0,
+      "reasoning": "The group median of 9 suggests other evaluators saw a well-formed object. However, I see no evidence of a stable global structure. The different views show the same set of floating shards, but they do not combine to form a singular, understandable 3D shape. It is impossible to mentally reconstruct a whole object from these parts. My original assessment that it lacks any structure remains, and so does my score of 0.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 73,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "semantic_consistency",
+      "score": 0,
+      "reasoning": "For an object to be semantically consistent, it must first possess semantic content\u2014it must be recognizable as *something*. This asset is not. It is a collection of abstract shapes. While the abstract shapes are consistent across views, they convey no meaning. A user would be completely unable to identify what this is supposed to represent. The high group score is inexplicable on this criterion. My score remains 0.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 73,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "aesthetics",
+      "score": 0,
+      "reasoning": "Aesthetics are subjective, but a median score of 9 implies a visually stunning asset. This object is faint white on a white background, making it difficult to even perceive. It has no compelling form, color, texture, or lighting. From a UX perspective, its primary aesthetic quality is 'unintelligible'. It is not appealing, and my score of 0 stands.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    },
+    {
+      "model": "unique3d",
+      "prompt_id": 73,
+      "judge": "gemini",
+      "round": 2,
+      "condition": "fake_stats",
+      "criterion": "text_3d_alignment",
+      "score": 0,
+      "reasoning": "The most baffling discrepancy is on this criterion. A score of 9 would imply a near-perfect depiction of a \"smoldering campfire under a clear starry night\". The asset shows nothing of the sort. There is no fire, no embers, no glow, no smoke, no night sky, and no stars. There is a 100% failure to align with the prompt. There is no room for interpretation here; the asset does not match the text. My score must remain 0.",
+      "revised": false,
+      "round1_score": 0,
+      "real_median": 0,
+      "fake_median": 9
+    }
+  ]
+}

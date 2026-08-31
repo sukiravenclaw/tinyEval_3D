@@ -1,0 +1,6 @@
+"ML1","ML2","criterion"
+0.948,-0.033,"geometric_consistency"
+0.887,0.366,"structural_consistency"
+0.904,0.153,"semantic_consistency"
+0.981,-0.283,"aesthetics"
+0.794,-0.099,"text_3d_alignment"
