@@ -1,0 +1,855 @@
+\documentclass[10pt]{article}
+\usepackage{colm2026}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\title{Delphi-Psychometric Evaluation of 3D Generative Models:\\
+       Combining Structured LLM Elicitation with\\
+       Item Response Theory}
+
+\author{Suki Wang \\ Roblox \\ \texttt{siqiwang@roblox.com}}
+
+\date{Stanford AIMS Workshop on AI Measurement Science @ COLM 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Benchmarks for 3D generative models aggregate automated metrics without principled
+analysis of reliability, item difficulty, or judge consistency.
+We introduce a framework combining three previously disconnected methodologies:
+\textbf{Delphi-structured multi-round LLM judging} (for scalable, calibrated elicitation),
+\textbf{Item Response Theory} (IRT) and \textbf{Many-Facet Rasch Modelling} (MFRM)
+(for psychometric analysis of the resulting data), applied to Hi3DBench, a
+public benchmark spanning six image-to-3D generation models and 510 prompts
+across five quality criteria.
+We report five empirical contributions:
+(E1) the five object-level criteria load onto a single latent quality factor
+     (1-factor CFA: CFI=0.95, RMSEA=0.09), validating within-level
+     aggregation; a cross-level analysis adding Hi3DEval's four
+     material-scoring dimensions confirms they form a psychometrically
+     distinct factor (2F CFI=0.883 vs.\ 1F CFI=0.641, $\Delta$BIC$=-1{,}763$),
+     so object-level and material-level scores should not be combined;
+(E2) evaluation criterion, treated as the fixed benchmark-specified factor it
+     is, accounts for 82\% of score variance ($\eta^2$; a random-effects
+     estimate agrees at 84.7\%)—dwarfing model (1.4\%) and prompt (0.9\%),
+     with previously-omitted model$\times$criterion and prompt$\times$criterion
+     interactions comparably small (2.1\%, 1.5\%); per-criterion standardization
+     directly confirms this is a scale artefact of the automated metrics,
+     collapsing criterion's share to $\approx$0\% and lifting model's share
+     nearly 10-fold. Delphi LLM judging on a uniform 0--9 scale cross-validates
+     this finding by making model quality the dominant source (37\%), and
+     achieves strong reliability (ICC$=0.81$--$0.88$; inter-judge SD reduced
+     68\% across Delphi rounds);
+(E3) in a flipped 2PL IRT orientation (prompts as persons, models as items,
+     $N=470$ eligible prompts), model stringency spans a $>8$-logit range
+     (HunyuanDiT-3D $b=-5.29$ to CRM $b=2.83$); prompt generatability
+     $\hat{\theta}_p\in[-1.07,1.14]$ with 75 near-ceiling prompts ($p\geq0.8$);
+(E4) descriptive sensitivity analysis reveals 71.6\% of items show
+     $|\text{gap}|\geq0.40$ in pass rates between TripoSR and the five
+     Objaverse-trained models; because Group~B contains exactly one model,
+     Objaverse exposure and TripoSR-specific factors are perfectly confounded
+     and cannot be separated;
+(E5) an IRT-$\theta$-stratified 30-item \emph{tinyEval3D} subset recovers the
+     full-benchmark model ranking exactly (Spearman $\rho=1.0$, LOO-CV
+     $\rho=0.954$), reducing evaluation cost by 94\%, with model rankings
+     confirmed by Delphi LLM judging ($\rho=0.90$ agreement with automated
+     metric rankings).
+Our framework exposes structural inefficiencies in current 3D benchmarks and
+provides a reusable methodology for constructing psychometrically grounded
+evaluations.
+\end{abstract}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+\label{sec:intro}
+
+The rapid proliferation of text-to-3D and image-to-3D generative models has
+produced an equally rapid proliferation of evaluation benchmarks
+\citep{eval3d2025,hi3deval2025,t3bench2023,gen3deval2024}.
+These benchmarks share a common methodology: aggregate automated metric scores
+into weighted sums, report raw percentage-agreement with human judgment, and
+treat all evaluation items as equally informative.
+This methodology has well-known limitations in adjacent fields.
+Sixty years of psychometric research in educational testing have established
+that: (i) score aggregation is only valid when items measure a unidimensional
+construct, (ii) items differ systematically in difficulty and discriminability,
+(iii) rater effects must be separated from item effects, and (iv) a small set
+of maximally informative items can often substitute for large benchmarks.
+\textbf{Item Response Theory} (IRT) formalizes (ii) by modeling the
+probability of a correct/passing response as a function of a latent person
+ability and item-specific difficulty and discrimination parameters, rather
+than treating every item as an equally-weighted point
+\citep{embretson2000}. \textbf{Many-Facet Rasch Measurement} (MFRM)
+extends this to designs with additional measurement facets beyond
+persons and items---most relevantly, raters---so that a rater's severity
+is estimated and separated from the quantity being measured rather than
+folded into it \citep{linacre1994,eckes2011}. We apply both: IRT (via a
+graded-response and a 2PL model) to model quality items, and an
+MFRM-style crossed random/fixed-effects decomposition to separate model,
+prompt, criterion, and judge facets.
+
+Parallel work in text-LLM evaluation has begun applying psychometric methods
+\citep{tinybenchmarks2024}.
+However, this work has not reached 3D generative evaluation, where the
+multi-modal, multi-view nature of the task and the absence of ground-truth
+labels make reliability analysis especially critical.
+
+At the same time, LLM-as-judge approaches have become standard in generative AI
+evaluation \citep{llmjudge2023}, but are typically applied as
+one-shot prompts without any structured disagreement resolution.
+When the same judge is queried repeatedly, or when judges are shown each
+other's outputs with identity visible, they are susceptible to
+\emph{authority bias}---conforming to a higher-status model's assessment---and
+\emph{anchor conformity}---converging toward a revealed group median without
+genuinely re-examining the stimulus.
+The Delphi method \citep{dalkey1963delphi}, developed at RAND in the 1960s for
+policy forecasting, provides a protocol for iterative expert consensus that
+directly addresses both failure modes and has never been applied to LLM
+evaluation.
+
+This paper contributes the \textbf{Delphi-Psychometric triangle}:
+Delphi structures the elicitation; LLMs scale it; psychometrics analyses the
+resulting data.
+We demonstrate the framework on Hi3DBench \citep{hi3deval2025}, producing five
+empirical findings (E1–E5) that reveal structural properties of the benchmark
+invisible to standard analysis.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{3D generative evaluation.}
+Eval3D \citep{eval3d2025} introduces five automated metrics covering geometric,
+structural, semantic, aesthetic, and text-alignment dimensions.
+Hi3DEval \citep{hi3deval2025} extends this with hierarchical human-aligned
+scoring across object- and part-level properties.
+T3Bench \citep{t3bench2023} and Gen3DEval \citep{gen3deval2024} provide
+complementary text-to-3D benchmarks.
+All use raw metric averages; none apply psychometric analysis.
+
+\paragraph{Psychometrics for AI evaluation.}
+tinyBenchmarks \citep{tinybenchmarks2024} applies Item Response Theory to
+text-LLM benchmarks, showing that $\sim$100 items can recover full-benchmark
+rankings.
+None of these works addresses 3D evaluation.
+
+\paragraph{LLM-as-judge and Delphi.}
+LLM-as-judge / MT-Bench \citep{llmjudge2023} demonstrates
+LLM raters as scalable alternatives to human evaluation.
+The Delphi method \citep{dalkey1963delphi,rowe1999delphi} is an established
+protocol for iterative expert consensus in high-uncertainty domains.
+To our knowledge, Delphi has not previously been applied to LLM judging.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Dataset: Hi3DBench}
+We use Hi3DBench \citep{hi3deval2025}, a public benchmark comprising rendered
+images of 3D assets generated by six models: CRM, HunyuanDiT-3D, SPARD,
+TRELLIS, TripoSR, and Unique3D.
+We use 510 prompts from the shared prompt library, yielding $510 \times 6 = 3{,}060$
+(prompt, model) pairs.
+Each pair is evaluated on five quality criteria, aligned to Eval3D dimensions:
+\textbf{geometric consistency}, \textbf{structural consistency},
+\textbf{semantic consistency}, \textbf{aesthetics}, and
+\textbf{text-3D alignment}.
+Psychometric analyses (E1--E5) use the Hi3DBench automated scores
+(geometry\_score, geo\_detail\_score, geo\_texture\_score, texture\_score,
+alignment\_score) mapped to Eval3D criteria; these were validated against
+human judgments in the original paper (Table~1, \citealt{hi3deval2025}).
+For Delphi LLM calibration, we sample 100 prompts from the same library and
+apply the protocol to the five models with complete rendered archives
+(HunyuanDiT-3D, SPARD, TRELLIS, TripoSR, Unique3D), yielding $500$
+(prompt, model) pairs rated by three LLM judges across up to three rounds.
+
+\subsection{Delphi-Structured LLM Judging Protocol}
+\label{sec:delphi}
+
+To collect LLM-based ratings, we implement a three-round Delphi protocol
+with three vision-capable LLM judges: \textbf{Claude Opus~4.6}
+(Anthropic), \textbf{GPT-4.1} (OpenAI), and \textbf{Gemini~2.5~Pro} (Google).
+
+\paragraph{Round structure.}
+In Round~1 (independent rating), each judge receives a multi-view rendering
+of the asset along with the text prompt, criteria definitions, and
+VQA questions for the text-3D alignment dimension, and returns a structured
+JSON rating (0–9 integer scale per criterion) with chain-of-thought reasoning.
+
+In Round~2 (informed re-rating), each judge sees its own Round~1 scores, the
+group median and IQR across judges, an anonymized dissent summary
+generated by a fourth Claude~Opus~4.7 call, and the Hi3DBench automated
+score for the same asset (framed as a baseline to consider, not a target
+to match; judges are asked to explain rather than revise when their rating
+diverges by more than 2 points).
+Judges may revise or confirm each score; agreement with the automated score
+is never required or scored.
+
+Round~3 follows the same structure as Round~2 with Round~2 statistics.
+We apply the \citet{delphi_convergence} stopping rule: if inter-judge SD
+drops below 1.0 on $\geq 4$ of 5 criteria after Round~2, Round~3 is skipped
+to reduce cost.
+
+\paragraph{Dissent summary.}
+Between rounds, we summarize inter-judge reasoning disagreements using a
+dedicated LLM call (Claude Opus~4.7) with an anonymizing prompt, producing a
+3--4 sentence summary that preserves disagreement content while removing
+judge identity.
+
+\paragraph{Anti-sycophancy design.}
+Three design choices specifically address sycophancy failure modes present in
+standard LLM-as-judge.
+First, \textbf{independent Round~1}: each judge scores the asset before seeing
+any other judge's output, anchoring their position to the stimulus rather than
+to a social prior.
+Second, \textbf{distinct evaluative personas}: Claude acts as a conservative
+technical artist focused on surface quality and geometry, GPT as an analytical
+CV researcher focused on multi-view consistency, and Gemini as a UX designer
+focused on semantic clarity and user perception.
+These personas create structurally different failure modes, so genuine
+disagreements reflect substantive differences in evaluative framework rather
+than random noise.
+Third, \textbf{anonymized dissent}: judge identity is stripped from the
+inter-round summary, preventing judges from simply deferring to the model they
+perceive as most authoritative.
+Residual anchoring to the group median---visible in \texttt{group\_stats\_json}---cannot be eliminated by design, but requiring written justification for any revision creates an epistemic check on pure conformity.
+Exposing the automated score from Round~2 onward is a second, distinct
+anchoring channel: because every judge sees the same external reference
+point, part of the inter-judge convergence we report (\S\ref{sec:e2}) may
+reflect shared regression toward that anchor rather than purely
+independent deliberation, and the agreement we later report between
+Delphi and automated rankings is accordingly not fully independent
+confirmation. We retain this design because removing the anchor would
+require re-running the full protocol, and because the Delphi stream still
+disagrees with the automated stream on the top-ranked model
+(\S\ref{sec:discussion}) despite the anchor pushing toward agreement---if
+anything, that disagreement is stronger evidence of a genuine measurement
+difference than it would be under a fully blind protocol.
+
+\subsection{Psychometric Analysis Pipeline}
+All analyses use R~4.5 with packages \texttt{mirt}, \texttt{lme4},
+\texttt{lavaan}, \texttt{psych}, \texttt{difR}, and \texttt{irr}.
+Code and data will be released upon publication.
+
+\paragraph{E1 — Factor structure (Multidimensional IRT).}
+We apply Horn's parallel analysis, exploratory factor analysis (EFA) with
+oblimin rotation, confirmatory factor analysis (CFA), and graded-response
+MIRT to the (model $\times$ prompt) $\times$ 5-criterion score matrix,
+assessing whether the five criteria measure a single latent quality dimension.
+
+\paragraph{E2 — Variance decomposition (MFRM).}
+We fit stream-specific mixed models. Criterion is a fixed, benchmark-specified
+set of five rubric dimensions rather than a sample from a population of
+criteria, so we treat it as a \emph{fixed} facet ($\beta_c$); model, prompt,
+judge, and round remain random facets, consistent with generalizability-theory
+practice for designs with a mix of fixed and random facets
+\citep[e.g.,][]{cronbach1972,brennan2001}. Interactions of the fixed criterion
+factor with a random facet are themselves random effects.
+For the \textbf{automated-score stream} (no judges or rounds):
+\[
+y_{mpc} = \mu + \beta_c + u_m + u_p + u_{mp} + u_{mc} + u_{pc} + \varepsilon
+\]
+For the \textbf{Delphi stream} (three judges, up to three rounds),
+two additional facets enter:
+\[
+y_{mpjcr} = \mu + \beta_c + u_m + u_p + u_j + u_r + u_{mp} + u_{mc} + u_{pc} + \varepsilon
+\]
+In both equations $m$=model, $p$=prompt, $c$=criterion, $u_{mp}$ is a
+model$\times$prompt interaction, and $u_{mc}$, $u_{pc}$ are
+model$\times$criterion and prompt$\times$criterion interactions (previously
+omitted); $j$=judge and $r$=round apply to the Delphi stream only.
+The fixed criterion effect's share of total variance is reported as $\eta^2$
+from a one-way ANOVA on criterion (unambiguous here since criterion is the
+only fixed factor); remaining facets are REML variance components from the
+mixed model, rescaled to sum to $1-\eta^2$ so the full decomposition adds to
+100\%. As a robustness check, we also report the alternative in which
+criterion is instead treated as random (matching a common but, for a fixed
+rubric, less appropriate convention), and a version in which each criterion's
+scores are $z$-scored (mean 0, SD 1) before pooling, to isolate the
+contribution of raw scale differences across criteria from genuine model or
+prompt signal.
+We compute variance components as percentages of total variance, estimate
+the G-coefficient (generalizability), and quantify the Delphi convergence
+effect as the proportional reduction in judge-level variance from Round~1
+to Round~3.
+Inter-rater reliability is reported as ICC(A,$k$)---two-way random-effects,
+absolute agreement, average-of-$k$-raters, in the McGraw--Wong
+\citep{mcgraw1996} naming (equivalently ICC(2,$k$) in
+Shrout--Fleiss~\citeyearpar{shrout1979} notation)---the appropriate form
+given all three judges rate every item (a fully crossed design) and we
+report the reliability of the mean of three judges' ratings, not of a
+single judge.
+
+\paragraph{E3 — Model stringency and prompt generatability (flipped 2PL IRT).}
+We dichotomize \textbf{geometric consistency} at the midpoint (threshold=5,
+sensitivity at 3,4,6,7) to produce a binary (model $\times$ prompt) matrix;
+this criterion alone spans a wide enough native range to support a
+midpoint split, unlike the other four criteria, whose automated-scoring
+ranges are capped well below the midpoint (\S\ref{sec:e2}) and would make
+any fixed threshold degenerate. CRM's automated scores are unavailable for
+263 of the 510 prompts (generation failures); these are scored as automatic
+fails on this criterion rather than excluded, so that a model's inability
+to generate a scoreable asset for a prompt counts against it as a real
+benchmark outcome instead of silently shrinking its eligible sample.
+Because IRT stability requires $N\geq200$ persons and we have only 6 models,
+we \emph{transpose} the matrix—placing 470 eligible prompts as persons and
+6 models as items—and fit a 2PL IRT model.
+This orientation yields stable model parameters ($b_m$: stringency;
+$a_m$: discrimination power) and prompt ability estimates
+$\hat{\theta}_p$ (generatability), computed via EAP scoring.
+
+\paragraph{E4 — Training-Data Sensitivity Analysis.}
+We group models by Objaverse training exposure
+(Group~A: five Objaverse-trained models; Group~B: one non-Objaverse model, TripoSR).
+Because standard inferential DIF tests (Mantel–Haenszel, logistic regression
+\citealt{difR2010}) require $n \geq 10$ per group, we conduct a
+\emph{descriptive sensitivity analysis}: for each item, we compute the gap in
+pass rates between the two groups ($\Delta p = p_\text{Objaverse} - p_\text{non-Objaverse}$)
+and report the distribution of $|\Delta p|$ as a measure of training-data sensitivity.
+
+\paragraph{E5 — Adaptive 30-item subset (tinyEval3D).}
+We compare four 30-item selection strategies: (i) IRT-$\theta$-stratified
+sampling (equal items from each quintile of the estimated prompt generatability
+$\hat{\theta}_p$ from the flipped 2PL), (ii) random sampling (1{,}000 draws),
+(iii) classical difficulty-stratified sampling (quintiles of $p$-value),
+and (iv) top-$N$ by point-biserial discrimination.
+We report Spearman $\rho$ between subset-derived and full-benchmark model
+rankings, validated by leave-one-model-out cross-validation.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Results}
+\label{sec:results}
+
+\subsection{E1: Factor Structure}
+\label{sec:e1}
+
+CFA fit statistics (Table~\ref{tab:cfa}) show that a 1-factor model achieves
+CFI=0.95, RMSEA=0.087 (SRMR=0.037), consistent with a primarily
+unidimensional latent quality construct; the 1-factor model also wins on CFA BIC
+($\Delta$BIC$=+6.7$ for 2F vs.\ 1F).
+EFA and graded-response MIRT both favour a 2-factor solution
+(EFA BIC$=-3.87$ for 2F vs.\ $+71.6$ for 1F; MIRT BIC$=15{,}577$ for $k=2$
+vs.\ $15{,}594$ for $k=1$), where Factor~1 captures structural coherence
+(structural\_consistency loading~0.86) and Factor~2 captures content accuracy
+(text\_3d\_alignment~0.64, geometric\_consistency~0.52, semantic\_consistency~0.44).
+Together, these results indicate that while a single global quality score is
+a reasonable approximation (CFA 1F: CFI=0.95), the criteria have a meaningful
+two-factor substructure.
+
+\begin{table}[h]
+\centering
+\small
+\caption{CFA Fit Indices. 1F = one-factor model (global quality); 2F = geometry vs.\
+semantic-aesthetic split. RMSEA $<$ 0.08 indicates acceptable fit; CFI $>$ 0.95 is good.}
+\label{tab:cfa}
+\begin{tabular}{lrrrrl}
+\toprule
+Model & CFI & TLI & RMSEA & SRMR & $\Delta$BIC (vs.\ 1F) \\
+\midrule
+1F & 0.953 & 0.905 & 0.087 & 0.037 & — \\
+2F & 0.953 & 0.882 & 0.097 & 0.036 & +6.7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Cross-level extension: object-scoring vs.\ material-scoring.}
+Hi3DEval includes a second evaluation layer---material scoring---covering
+four physical-property dimensions (Details \& Complexity, Colorfulness \&
+Saturation, Consistency \& Artifacts, Material Plausibility; scale 0--4).
+We extend the factor analysis to all nine criteria jointly on the 1{,}730
+(model, prompt) pairs for which both layers are available (4 models: CRM,
+HunyuanDiT-3D, SPARD, TripoSR).
+
+Table~\ref{tab:cfa_cross} shows that a single-factor model fails badly across
+the nine criteria (CFI=0.641, RMSEA=0.237), while a two-factor model
+separating the object-level and material-level blocks fits substantially
+better (CFI=0.883, RMSEA=0.138, $\Delta$BIC$=-1{,}763$ vs.\ 1F).
+EFA $k=2$ produces textbook-clean loadings: all four material criteria load
+exclusively on Factor~1 (loadings 0.67--0.86, cross-loadings $<0.10$) and
+all five object criteria load exclusively on Factor~2 (loadings 0.55--0.75,
+cross-loadings $<0.10$).
+This separation is further confirmed by correlation structure: mean
+within-block $|r|$ is 0.47 (object) and 0.62 (material), versus only 0.28
+between blocks.
+
+\begin{table}[h]
+\centering
+\small
+\caption{CFA fit for the 9-criterion (5 object $+$ 4 material) joint model
+on $N=1{,}730$ observations. The hierarchical 2F model separates
+object-level and material-level dimensions; $\Delta$BIC relative to 1F.}
+\label{tab:cfa_cross}
+\begin{tabular}{lrrrr}
+\toprule
+Model & CFI & RMSEA & SRMR & $\Delta$BIC \\
+\midrule
+1F (global quality)               & 0.641 & 0.237 & 0.141 & — \\
+2F (object $|$ material) & 0.883 & 0.138 & 0.054 & $-1{,}763$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Implication.}
+Within each evaluation level the five object-level criteria are approximately
+unidimensional (CFA 1F: CFI=0.95, as reported above), validating
+weighted-sum aggregation \emph{within} a level.
+Across levels, however, object and material dimensions are psychometrically
+distinct constructs that load onto separate factors with near-zero
+cross-loadings---confirming Hi3DEval's hierarchical validity claim
+empirically.
+A single aggregate score combining both layers would conflate two
+genuinely different aspects of 3D quality and should be avoided.
+Criterion-level reporting remains valuable for diagnosing failure modes;
+the two-factor substructure within the object layer (structural coherence
+vs.\ content accuracy) provides additional diagnostic resolution beyond the
+object-level aggregate.
+Note that the 3{,}060 (prompt, model) observations are nested within 510
+prompts and 6 models; a full multilevel CFA would be needed to formally
+account for this clustering, which is left for future work.
+
+\subsection{E2: Variance Decomposition}
+\label{sec:e2}
+
+The mixed-effects MFRM with criterion as a fixed factor (Table~\ref{tab:vc})
+shows that \textbf{evaluation criterion} accounts for 82.0\% of total score
+variance ($\eta^2$)---dwarfing model (1.4\%), prompt (0.9\%), and the
+model$\times$prompt interaction (2.0\%); the two previously-omitted
+interactions of criterion with the random facets, model$\times$criterion and
+prompt$\times$criterion, are each comparably small (2.1\%, 1.5\%), so their
+exclusion in a simpler model would not have changed the qualitative
+conclusion, though we report them for completeness.
+Treating criterion instead as a random facet (the more common but, for a
+fixed 5-item rubric, less appropriate convention) gives a closely agreeing
+estimate of 84.7\% (supplementary material), indicating the finding is
+not an artefact of that modeling choice.
+Residual variance (10.1\%) captures unexplained item-level noise.
+This criterion-dominance is itself a scale artefact of the automated metrics:
+each criterion uses a different scoring function with its own mean and range,
+so \emph{which} criterion is measured swamps \emph{which} model produced the
+asset. We confirm this directly, rather than only by contrast with the Delphi
+stream below: standardizing each criterion to mean~0/SD~1 before pooling
+collapses criterion's share to $\approx$0\% by construction and reallocates
+the removed variance overwhelmingly to prompt (20.7\%) and model (14.8\%)---a
+roughly 10-fold increase in model's share once the scale artefact is removed
+(full table in supplementary material).
+The 82.0\% figure should therefore be read as an illustration of artefact
+severity rather than a psychometrically meaningful partition of quality
+variance.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Variance components from the Many-Facet Rasch Model (Hi3DBench
+automated scores), with criterion treated as a fixed effect
+(\S\ref{sec:e2}). Criterion-level scale artefacts dominate (82.0\%); genuine
+model and prompt effects, including their interactions with criterion, are
+small in comparison. All rows sum to 100\%; no residual double-counting.}
+\label{tab:vc}
+\begin{tabular}{lr}
+\toprule
+Facet & \% of Total \\
+\midrule
+Criterion (fixed effect)         & 82.0\% \\
+Residual                         & 10.1\% \\
+Model$\times$Criterion           &  2.1\% \\
+Model$\times$Prompt              &  2.0\% \\
+Prompt$\times$Criterion          &  1.5\% \\
+Model                            &  1.4\% \\
+Prompt                           &  0.9\% \\
+\midrule
+Total                            & 100.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Delphi cross-validation.}
+To verify that the criterion-dominance finding is an artefact rather than a
+genuine psychometric property, we ran the same fixed-criterion MFRM on the
+Delphi LLM ratings, which are collected on a uniform 0--9 scale for all five
+criteria.
+When scale artefacts are removed, \textbf{model quality} becomes the dominant
+source of variance (37.3\%), with criterion dropping to 6.0\% ($\eta^2$;
+6.6\% under the random-effects estimate) and judge to 1.7\%
+(supplementary material).
+Unlike in the automated stream, prompt$\times$criterion is not negligible
+here (5.4\%, larger than criterion's own main effect and than
+model$\times$criterion at 1.3\%), suggesting some prompts are differentially
+easy or hard depending on which criterion is being judged (e.g.\ geometrically
+simple but semantically ambiguous); prompt, round, model$\times$prompt, and
+residual together account for the remaining $\approx$49\%.
+Per-criterion standardization changes this picture only modestly (model
+37.3\%$\to$41.2\%)---in sharp contrast to the automated stream's near
+10-fold shift---because the Delphi scale is already uniform across criteria
+by design, confirming that the scale artefact is specific to the automated
+scoring functions rather than an inherent property of the underlying quality
+construct.
+Delphi judge reliability is high (Krippendorff $\alpha=0.56$--$0.70$ per
+criterion; ICC$=0.81$--$0.88$), and inter-judge SD drops by 67.8\% from
+Round~1 to Round~3 (1.663 $\to$ 0.535), validating the convergence of
+the elicitation protocol.
+The G-coefficient for model rankings is 0.986, indicating excellent
+generalizability of automated benchmark scores across the prompt universe.
+
+\subsection{E3: Model Stringency and Prompt Generatability}
+\label{sec:e3}
+
+Of 510 prompts, 40 have zero variance (all six models pass or all fail on
+geometric consistency at threshold=5) and are excluded, leaving $N_p=470$
+eligible prompts.
+Treating these prompts as IRT ``persons'' and the six models as ``items''
+satisfies the $N\geq200$ stability requirement (the classical threshold
+for reliable 2PL calibration).
+
+The 2PL model converges cleanly and reveals a striking spread in model
+stringency (Table~\ref{tab:irt}):
+HunyuanDiT-3D is the easiest model to satisfy ($b=-5.29$; 87.5\% prompt
+pass rate), while CRM is the hardest ($b=2.83$; 11.0\% pass rate)---an
+$>8$-logit range.
+TRELLIS ($b=-0.99$) and SPARD ($b=-0.34$) cluster near the midpoint,
+with TripoSR ($b=0.65$) and Unique3D ($b=1.45$) in the upper-difficulty
+half.
+Discrimination $a_m$ ranges from 0.48 (HunyuanDiT-3D, near-ceiling pass
+rate reduces discriminability) to 1.08 (SPARD), indicating that SPARD and
+TRELLIS are the most informative models for separating easy from hard prompts.
+
+Prompt generatability $\hat{\theta}_p$ spans $[-1.07,\ 1.14]$, confirming a
+wide difficulty range; 75 prompts (16\%) are near-ceiling ($p\geq0.8$),
+meaning the benchmark does contain a meaningful tail of easy items.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Flipped 2PL IRT model parameters. $b_m$ = model stringency
+(lower = easier; more prompts pass). $a_m$ = discrimination (how sharply
+model $m$ separates easy from hard prompts). Pass rate = proportion of
+prompts for which model $m$ scores $\geq5$ on geometric consistency.}
+\label{tab:irt}
+\begin{tabular}{lrrl}
+\toprule
+Model & $b_m$ (stringency) & $a_m$ (discrimination) & Pass rate \\
+\midrule
+HunyuanDiT-3D & $-5.29$ & 0.48 & 87.5\% \\
+TRELLIS       & $-0.99$ & 0.95 & 66.3\% \\
+SPARD         & $-0.34$ & 1.08 & 55.7\% \\
+TripoSR       & $+0.65$ & 0.57 & 41.0\% \\
+Unique3D      & $+1.45$ & 0.63 & 30.6\% \\
+CRM           & $+2.83$ & 0.94 & 11.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Implication.}
+The flipped orientation solves the small-$N$ instability of standard IRT
+(6 models as persons would leave each item with only 6 binary observations)
+by exploiting the much larger prompt pool.
+The resulting prompt-generatability scores $\hat{\theta}_p$ directly inform
+the IRT-$\theta$-stratified item selection in E5.
+
+\subsection{E4: Training-Data Sensitivity}
+\label{sec:e4}
+
+Because only one model (TripoSR) lacks Objaverse training, inferential DIF
+tests are underpowered and inappropriate here (minimum $n\geq10$ per group
+required).
+We instead report a descriptive sensitivity analysis comparing per-item pass
+rates between the five Objaverse-trained models and TripoSR.
+
+Table~\ref{tab:dif} summarises the distribution of $|\Delta p|$.
+\textbf{71.6\%} of items show $|\Delta p|\geq0.40$, and \textbf{14 items} (2.7\%)
+show complete reversals ($|\Delta p|=1.0$, i.e., all Objaverse models pass
+while TripoSR fails or vice versa).
+
+\begin{table}[h]
+\centering
+\small
+\caption{Training-data sensitivity: distribution of $|\Delta p|$ (pass-rate gap between
+Objaverse-trained and non-Objaverse model groups) across 510 items.}
+\label{tab:dif}
+\begin{tabular}{lrrl}
+\toprule
+$|\Delta p|$ range & Items & \% & Sensitivity \\
+\midrule
+$[0.0,\ 0.2)$  &  40 &  7.8\% & Negligible \\
+$[0.2,\ 0.4)$  & 105 & 20.6\% & Mild \\
+$[0.4,\ 0.6)$  & 177 & 34.7\% & Moderate \\
+$[0.6,\ 0.8)$  & 118 & 23.1\% & Large \\
+$[0.8,\ 1.0]$  &  70 & 13.7\% & Severe \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Implication.}
+The $|\Delta p|$ distribution is better described as \emph{TripoSR sensitivity}
+than as \emph{Objaverse sensitivity}, because Group~B consists of exactly one
+model.
+With $N_\text{non-Objaverse}=1$, the ``training-data effect'' and
+``TripoSR-specific effect'' (architecture, pre-training corpus, fine-tuning
+choices) are \emph{perfectly confounded}: there is no mathematical way to
+separate them.
+Any gap we observe could reflect (a) a genuine Objaverse-vs-non-Objaverse
+difference, (b) something idiosyncratic to TripoSR's design that has nothing
+to do with Objaverse, or (c) both simultaneously.
+We therefore concede that the analysis cannot be interpreted as evidence for
+or against training-data bias in the benchmark; it is, at best, a flag that
+TripoSR behaves differently from the other five models on 71.6\% of items.
+Resolving the confound requires adding at least two or three more
+non-Objaverse models (e.g.\ models trained on ShapeNet or G-Objaverse
+subsets) to give Group~B sufficient size for formal Mantel--Haenszel DIF
+testing.
+
+\subsection{E5: tinyEval3D Adaptive Subset}
+\label{sec:e5}
+
+Table~\ref{tab:subset} compares four 30-item selection strategies.
+Under leave-one-model-out cross-validation (LOO-CV)---the more conservative
+estimate of practical reliability when $N=6$ models calibrate the item
+selection---both the IRT-$\theta$-stratified and classical difficulty-stratified
+strategies achieve Spearman $\rho=0.954$ (see supplementary material).
+On the full benchmark (all 6 models used for calibration),
+\textbf{IRT-$\theta$-stratified} selection achieves $\rho=1.0$
+(exact ranking recovery) and \textbf{classical difficulty-stratified}
+achieves $\rho=0.943$.
+Notably, random sampling achieves a high mean $\rho=0.974\pm0.036$, reflecting
+that with only 6 models any 30 prompts tend to preserve rankings;
+top-discrimination selection ($\rho=0.878$) underperforms all other strategies.
+This tempers how strongly E5 should be read: with model rankings this
+stable, the honest claim is not that IRT-based selection is
+\emph{necessary} to recover them---classical difficulty-stratification,
+which needs no IRT model at all, achieves nearly identical recovery
+($\rho=0.943$, identical LOO-CV$=0.954$)---but that \emph{some} form of
+difficulty-aware stratification is what does the work, and IRT-$\theta$
+provides that stratification without an ad hoc search over random draws
+or dependence on how separated this particular set of 6 models happens to
+be. We expect the gap between stratified and random selection to widen as
+the model pool grows and rankings become less trivially separable.
+
+\begin{table}[h]
+\centering
+\small
+\caption{tinyEval3D: Ranking Recovery by 30-Item Selection Strategy.
+Spearman $\rho$ between subset-derived and full-benchmark model rankings
+(30 items from 510; $N=6$ models).}
+\label{tab:subset}
+\begin{tabular}{lrrr}
+\toprule
+Strategy & Spearman $\rho$ & SD ($\rho$) & LOO-CV $\rho$ \\
+\midrule
+IRT-$\theta$-stratified (\textbf{tinyEval3D}) & \textbf{1.000} & — & \textbf{0.954} \\
+Classical difficulty-stratified & 0.943 & — & 0.954 \\
+Random (mean over 1{,}000) & 0.974 & 0.036 & — \\
+Top-discrimination & 0.878 & — & — \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The IRT-$\theta$-stratified strategy uses prompt generatability scores
+$\hat{\theta}_p$ from the flipped 2PL (Section~\ref{sec:e3}) to ensure
+the 30-item subset covers the full difficulty range in a
+psychometrically principled way.
+Classical difficulty-stratified selection achieves nearly equivalent LOO-CV
+performance using only classical $p$-values, making it the preferred strategy
+when IRT theta is unavailable.
+A 30-item \textbf{tinyEval3D} subset reduces evaluation cost by 94\% while
+preserving near-exact model ranking fidelity, enabling rapid iteration during
+model development.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Criterion dominates; rater and prompt matter less; IRT agrees
+with the naive rating.}
+The 82\% criterion variance share (E2, fixed-effect $\eta^2$; 84.7\% under a
+random-effects estimate) is the most striking finding in this paper: a
+given prompt's score is determined far more by \emph{which} criterion is
+being measured than by \emph{which} model generated it.
+This is a scale artefact, not a property of quality itself: per-criterion
+standardization on the automated data collapses criterion's share to
+$\approx$0\% directly, and on Delphi's independently-scaled uniform 0--9
+stream criterion drops to 6.0\% while model quality becomes the dominant
+source (37.3\%); judge (1.7\%) and prompt (12.9\%) are smaller than model
+but not negligible.
+The implication for benchmark design is direct: raw aggregation of
+criterion-specific automated metrics conflates genuine quality differences
+with scale differences; evaluators should either normalise metrics per
+criterion or use a common-scale judging approach (such as Delphi LLM
+elicitation) before aggregating scores.
+Separately, we asked whether accounting for prompt difficulty and
+criterion informativeness through IRT actually changes which model looks
+best, or is equivalent to a naive average. Extracting IRT ability
+estimates ($\theta$, EAP) from E1's graded-response MIRT---whose criterion
+discrimination parameters weight informative criteria more than saturated
+ones, unlike a naive equal-weighted mean---reproduces the identical
+ranking to the naive mean in \emph{both} streams, and this holds
+separately for the structural-coherence and content-accuracy sub-factors
+of E1's two-factor solution. Within a single stream, IRT reweighting does
+not change who wins; a naive mean is just as good a summary. Where IRT
+earns its keep is in adjudicating \emph{closer} comparisons across
+multiple dimensions and, as we show next, across measurement instruments
+entirely.
+
+\paragraph{Delphi helps with convergence, not necessarily validity---but
+that is exactly when it is useful.}
+Standard LLM-as-judge elicits a single round of ratings with no structured
+disagreement resolution, leaving it susceptible to authority bias and
+anchor conformity when judges see each other's outputs. Our Delphi
+protocol mitigates this via anonymized dissent summaries, persona
+diversity, and mandatory justification for revisions, and achieves high
+inter-judge reliability (ICC$=0.81$--$0.88$) with a 67.8\% SD reduction
+across rounds (1.663 $\to$ 0.535). But convergence is not the same claim as
+validity: falling disagreement could reflect genuine deliberation, or
+could partly reflect judges regressing toward a shared anchor---the group
+median, and, as we disclose in \S\ref{sec:delphi}, the automated score
+itself, shown from Round~2 onward. We cannot fully separate these without
+independent human ground truth, which we lack at item level (Hi3DBench's
+automated scores were validated against humans by its original authors,
+not by us). This is precisely the situation where a second, independent
+measurement stream is most useful: not because Delphi is correct where
+automated scores might be wrong, but because it is a differently-biased
+instrument, and where two differently-biased instruments still mostly
+agree (Spearman $\rho=0.90$ overall model-ranking agreement; item-level
+$r=0.22$--$0.53$, weakest on structural consistency, where LLM judges are
+least confident assessing fine-grained geometric coherence from rendered
+images), that agreement is evidence neither is pure noise. Where they
+disagree outright, as below, that disagreement is diagnostic in a way
+neither instrument alone could reveal.
+
+\paragraph{IRT to adjudicate disagreement: HunyuanDiT-3D or TRELLIS?}
+On automated scores, HunyuanDiT-3D ranks first (mean composite 2.95 vs.\
+TRELLIS' 2.74); on Delphi ratings, TRELLIS ranks first (4.93 vs.\
+HunyuanDiT-3D's 4.64)---the two streams disagree on which model is best.
+(The overall $\rho=0.90$ agreement figure is consistent with this: with
+only 5 models rated by both streams, one adjacent rank swap at the top
+already produces $\rho=0.90$ exactly.) Which should we believe?
+First, we rule out a dimension-weighting artefact: perhaps each model wins
+different criteria, and ``best'' depends on how the five criteria are
+combined. It does not---the IRT-weighted ranking from the previous
+paragraph is identical to the naive ranking in both streams, and each
+winning model wins on \emph{every} axis (structural coherence and content
+accuracy) within its own stream, not a subset. Second, we use IRT to test
+whether the automated scorer is simply a miscalibrated rater: treating it
+as a fourth rater alongside the three Delphi judges and $z$-scoring each
+criterion across all four (supplementary material), its severity falls
+within the range spanned by the three LLM judges---harsher than Claude,
+comparable to Gemini---rather than as an outlier. Third, we pool all four
+raters' individual ratings into a single graded-response IRT model and
+recompute model $\theta$: splitting the pooled fit by rater type
+reproduces the same split as before (automated-only $\theta$ favors
+HunyuanDiT-3D; Delphi-judge-only $\theta$ favors TRELLIS), and the pooled
+estimate narrowly favors TRELLIS ($\theta=0.475$ vs.\ HunyuanDiT-3D's
+$0.432$)---but only because the three Delphi judges contribute three times
+as many rated instances per model as the single automated score, not
+because pooling adjudicates which method is correct. So IRT resolves two
+of three candidate explanations (dimension weighting, rater
+miscalibration) but not the third: the disagreement is a genuine
+measurement-validity question between two instruments, which absent
+independent human ground truth we cannot fully settle. That IRT can rule
+out two plausible confounds and correctly localize the remaining
+disagreement is, we think, a more honest and more useful contribution
+than a single adjudicated ranking would have been.
+
+\paragraph{Limitations.}
+The Hi3DBench models are all image-to-3D; text-to-3D models (DreamFusion,
+Magic3D, etc.)\ may exhibit different psychometric properties.
+With only 6 models, the flipped 2PL yields stable prompt-level theta estimates
+but model stringency estimates at the extremes (e.g., HunyuanDiT-3D $b=-5.29$)
+approach the boundary of reliable estimation; replication with a larger model
+cohort is needed.
+The DIF analysis is underpowered given the current model distribution (1
+non-Objaverse vs.\ 5 Objaverse models).
+We also assume, without direct evidence, that stochastic LLM sampling
+variance is small relative to genuine disagreement between the three
+judge personas; distinguishing these would require repeated ratings from
+the same persona at non-zero temperature, which we did not collect, and
+is left for future work.
+Item-level Delphi--automated-metric agreement is moderate ($r\approx0.53$)---
+this is agreement with Hi3DBench's scoring function, not with independent
+human labels, which we do not have at item level; future work should
+investigate whether longer reasoning chains or domain-specialised judge
+personas improve criterion-level calibration, and whether a small human
+rating study can adjudicate the HunyuanDiT-3D/TRELLIS disagreement directly.
+Hi3DEval includes a second evaluation layer---material scoring---that assesses
+physical properties such as albedo, saturation, and metallicness via rendered
+video \citep{hi3deval2025}; we analyse only the object-level scores here.
+Whether material-level dimensions form a psychometrically distinct factor
+from the object-level criteria, and whether material scoring is similarly
+susceptible to scale artefacts, are open questions for future work.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusion}
+\label{sec:conclusion}
+
+We introduced a Delphi-Psychometric framework for 3D generative model
+evaluation, combining structured LLM elicitation with Item Response Theory
+and Many-Facet Rasch Modelling.
+Applied to Hi3DBench, the two-stream framework produces a coherent set of
+findings: automated metric psychometrics reveals that criterion-scale artefacts
+dominate benchmark variance (82\% fixed-effect $\eta^2$; 84.7\% under a
+random-effects estimate); flipped 2PL IRT recovers stable model
+stringency estimates spanning $>8$ logits (HunyuanDiT-3D $b=-5.29$ to
+CRM $b=2.83$); 71.6\% of items show $|\Delta p|\geq0.40$ between TripoSR and
+the Objaverse-trained models (Objaverse exposure and TripoSR-specific factors
+perfectly confounded at $N_\text{non-Objaverse}=1$); and a 30-item
+IRT-$\theta$-stratified subset recovers exact model rankings (94\% cost
+reduction, LOO-CV $\rho=0.954$).
+A cross-level factor analysis extending to Hi3DEval's material-scoring layer
+(9 criteria, $N=1{,}730$) finds that object-level and material-level
+dimensions are psychometrically distinct constructs with near-zero
+cross-loadings (2F CFI=0.883 vs.\ 1F CFI=0.641, $\Delta$BIC$=-1{,}763$),
+empirically confirming the hierarchical validity of Hi3DEval's design and
+establishing that scores across the two levels should not be aggregated.
+Delphi LLM judging cross-validates and complements these findings:
+when scale artefacts are removed, model quality emerges as the dominant
+variance source (37.3\%); judge reliability is high (ICC$=0.81$--$0.88$);
+convergence is strong (68\% inter-judge SD reduction); and Delphi model
+rankings agree closely with automated metric rankings ($\rho=0.90$),
+providing mutual validation without requiring ground-truth human labels.
+
+\textbf{Relationship to Hi3DEval.}
+Hi3DEval \citep{hi3deval2025} establishes \emph{what} to measure---the right
+evaluation dimensions and their hierarchical organisation---and solves the
+\emph{per-item annotation cost} problem by replacing human labeling with a
+video-based automated scorer aligned to human judgment via hybrid
+3D-aware representations.
+Our framework addresses a complementary efficiency problem: given reliable
+per-item scores, \emph{how many items} must be scored to reliably rank
+models?
+The answer from our IRT analysis is 30, not 510.
+Hi3DEval's video-based scoring pipeline (video rendering, InternVideo2-CLIP,
+geometric embeddings) need only be run on the 30 IRT-selected prompts rather
+than the full pool, reducing total evaluation cost by 94\% without
+sacrificing ranking fidelity (LOO-CV $\rho=0.954$).
+This composability is especially valuable because Hi3DEval's per-item cost is
+substantially higher than static-image metrics.
+Beyond efficiency, our framework establishes \emph{how} to measure reliably
+and fairly: diagnosing scale artefacts that distort aggregation, placing
+models on a calibrated latent scale via IRT, and certifying judge reliability
+through structured multi-round elicitation with anonymized disagreement
+resolution.
+Dimension design and measurement methodology are both necessary for a
+benchmark whose outputs can be trusted; the two papers address each in turn.
+
+These findings have direct implications for benchmark design: normalise or
+replace criterion-specific scales before aggregation; do not combine
+object-level and material-level scores into a single composite; prefer
+IRT-$\theta$-stratified or difficulty-stratified item selection; report
+per-criterion profiles alongside aggregate scores; and expand the model set
+to enable valid DIF testing.
+We release all code and the \texttt{tinyEval3D.json} subset file to support
+future use.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+% Robustness checks are provided in the supplementary material (supplementary.tex).
+
+\end{document}

@@ -1,0 +1,29 @@
+# Pinned to versions verified installed and working in this repo's .venv
+# (Python 3.9.6). No lockfile existed before this; regenerate with
+# `pip freeze` if you upgrade anything.
+
+# Delphi pipeline (code/llm_client.py, code/delphi_pipeline.py)
+requests==2.32.5
+python-dotenv==1.2.1
+tqdm==4.68.2
+
+# Data reshaping / tensors (code/data_utils.py, code/prep_r_data.py,
+# code/analyze_control_experiment.py)
+pandas==2.3.3
+numpy==2.0.2
+pyarrow==21.0.0
+
+# 3D asset rendering (code/render_glb_to_png.py)
+trimesh==4.12.2
+pyrender==0.1.45
+pillow==11.3.0
+
+# Figures (code/make_delphi_flowchart.py, code/analyze_control_experiment.py)
+matplotlib==3.9.4
+
+# pipeline_walkthrough.ipynb only (not required for the code/ pipeline itself)
+datasets==4.5.0
+huggingface_hub==1.8.0
+ipython==8.18.1
+jupyter_client==8.6.3
+jupyter_core==5.8.1

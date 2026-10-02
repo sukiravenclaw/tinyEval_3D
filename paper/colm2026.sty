@@ -1,0 +1,40 @@
+% colm2026.sty — minimal COLM 2026 workshop style file
+% Adapted from standard NeurIPS/COLM template conventions
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{colm2026}[2026/01/01 COLM 2026 Style]
+
+\usepackage[margin=1in]{geometry}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Title formatting
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\LARGE\bfseries \@title \par}
+    \vskip 1em
+    {\large \@author \par}
+    \vskip 0.5em
+    {\normalsize \@date \par}
+  \end{center}
+  \vskip 1.5em
+}
+
+% Section formatting
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+% Abstract
+\renewenvironment{abstract}{
+  \begin{center}
+    \begin{minipage}{0.92\textwidth}
+      \small\bfseries Abstract.\normalfont\enspace
+}{
+    \end{minipage}
+  \end{center}
+  \vskip 1em
+}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}

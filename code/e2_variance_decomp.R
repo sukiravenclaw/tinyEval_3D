@@ -209,11 +209,11 @@ for (crit in CRITERIA) {
   cat("  ", crit, "α=", round(alpha_val,3), "ICC=", round(icc_res[1],3), "\n")
 }
 rel_df <- do.call(rbind, rel_rows)
-write.csv(rel_df, file.path(RES, "T2_reliability.csv"), row.names = FALSE)
+write.csv(rel_df, file.path(RES, paste0("T2_reliability", OUT_SUFFIX, ".csv")), row.names = FALSE)
 
 # ── 3. Judge severity plot ─────────────────────────────────────────────────
 judge_means <- aggregate(score ~ judge + criterion, data = df, FUN = mean)
-png(file.path(FIGS, "F2_judge_severity.png"), width = 800, height = 500, res = 100)
+png(file.path(FIGS, paste0("F2_judge_severity", OUT_SUFFIX, ".png")), width = 800, height = 500, res = 100)
 par(mar = c(8, 4, 3, 1))
 overall_mean <- aggregate(score ~ judge, data = df, FUN = mean)
 overall_mean <- overall_mean[order(overall_mean$score), ]

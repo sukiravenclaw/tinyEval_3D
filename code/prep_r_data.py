@@ -1,13 +1,17 @@
 """
 Prepare R-ready CSV files from the rating tensor (or Hi3DBench dev data).
 
-Outputs to results/r_data/:
+Outputs to results/r_data/ (default) or results/r_data_dev/ (--dev):
   - wide_final.csv      — (model×prompt) × 5 criteria, judge-averaged final scores
   - long_tensor.csv     — full long format for MFRM/lme4
   - item_matrix.csv     — items × models binary matrix for IRT (dichotomized at threshold)
   - dif_groups.csv      — per-model Objaverse exposure group label
 
-Run BEFORE the R scripts. Can use Hi3DBench dev data if Delphi tensor not yet available.
+Run BEFORE the R scripts. --dev uses Hi3DBench automated scores (6 models, incl. crm)
+instead of the real Delphi tensor (results/rating_tensor.parquet, 5 models) and writes
+to results/r_data_dev/ so it never overwrites the production Delphi-derived data in
+results/r_data/. The R scripts pick between the two streams via env vars
+(E{1b,2,3,4,5}_R_DATA_DIR=r_data|r_data_dev; E1 has no such override, always r_data).
 """
 import argparse
 from pathlib import Path
@@ -46,8 +50,8 @@ def load_tensor(path: str) -> pd.DataFrame:
     return pd.read_csv(path)
 
 
-def prep_from_tensor(df: pd.DataFrame, dichotomize_threshold: int = 5) -> None:
-    out = RESULTS / "r_data"
+def prep_from_tensor(df: pd.DataFrame, dichotomize_threshold: int = 5, out_dir: str = "r_data") -> None:
+    out = RESULTS / out_dir
     out.mkdir(exist_ok=True)
 
     # Use final round scores (max round per model/prompt/judge/criterion)
@@ -172,8 +176,10 @@ if __name__ == "__main__":
         hi3d_path = str(ROOT / "data" / "hi3dbench_object_level.json")
         df = reshape_hi3dbench_to_tensor(hi3d_path)
         print(f"Using Hi3DBench development data: {len(df)} rows")
+        out_dir = "r_data_dev"
     else:
         df = load_tensor(args.tensor)
         print(f"Loaded tensor: {len(df)} rows")
+        out_dir = "r_data"
 
-    prep_from_tensor(df, args.threshold)
+    prep_from_tensor(df, args.threshold, out_dir)
